@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefHeight="845.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="845.0" prefWidth="700.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6d6d6d" height="747.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="700.0" />
+            <Group layoutX="9.0" layoutY="736.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d9d9d9" height="141.0" stroke="#d9d9d9" strokeLineCap="ROUND" strokeMiterLimit="20.0" strokeType="OUTSIDE" strokeWidth="10.0" style="-fx-background-radius: 10;" width="680.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#909090" height="141.0" layoutX="4.0" stroke="#d9d9d9" strokeLineCap="ROUND" strokeMiterLimit="20.0" strokeType="OUTSIDE" strokeWidth="10.0" style="-fx-background-radius: 10;" width="124.0" />
+                  <Text layoutX="583.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mij">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="24.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#d68f0b" layoutX="33.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="24.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="182.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Apparaat">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="24.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="381.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gegevens">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="24.0" />
+                     </font>
+                  </Text>
+                  <ImageView fitHeight="74.0" fitWidth="68.0" layoutX="32.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/HomeSelected.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="66.0" fitWidth="75.0" layoutX="196.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/Apparaat.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="40.0" fitWidth="78.0" layoutX="399.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/Gegevens.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="67.0" fitWidth="60.0" layoutX="570.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/Mij.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Group>
+            <ImageView fitHeight="377.0" fitWidth="645.0" layoutX="67.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/Sunpower-panel1-2_ye8wx0-3725652999.png" />
+               </image>
+            </ImageView>
+            <Group layoutX="26.0" layoutY="422.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f2f2f2" height="264.0" stroke="#f2f2f2" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="10.0" width="625.0" />
+                  <Text layoutX="38.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hoeveel bespaard">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="48.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="38.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[Aantal energie bespaard]">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="36.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Group>
+            <Text fill="#ffe372" layoutX="109.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welkom [gebruikersnaam]" wrappingWidth="586.4462890625">
+               <font>
+                  <Font name="Lucida Sans Unicode" size="40.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
