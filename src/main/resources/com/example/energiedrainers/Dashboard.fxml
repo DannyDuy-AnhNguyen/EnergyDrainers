@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefHeight="1484.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="1485.0" prefWidth="700.0" VBox.vgrow="ALWAYS">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6d6d6d" height="1490.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="700.0" />
+            <Text fill="#ffe372" layoutX="41.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[Zonnepaneel's serienummer]">
+               <font>
+                  <Font name="Segoe UI Semibold" size="45.0" />
+               </font>
+            </Text>
+            <Group layoutX="10.0" layoutY="1342.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d9d9d9" height="141.0" stroke="#d9d9d9" strokeLineCap="ROUND" strokeMiterLimit="20.0" strokeType="OUTSIDE" strokeWidth="10.0" style="-fx-background-radius: 10;" width="680.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#909090" height="141.0" layoutX="170.0" layoutY="-1.0" stroke="#d9d9d9" strokeLineCap="ROUND" strokeMiterLimit="20.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background-radius: 10;" width="124.0" />
+                  <Text layoutX="583.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mij">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="24.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="33.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="24.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#d68f0b" layoutX="182.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Apparaat">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="24.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="381.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gegevens">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="24.0" />
+                     </font>
+                  </Text>
+                  <ImageView fitHeight="74.0" fitWidth="68.0" layoutX="32.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/Home.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="66.0" fitWidth="75.0" layoutX="196.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/ApparaatSelected.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="40.0" fitWidth="78.0" layoutX="399.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/Gegevens.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="67.0" fitWidth="60.0" layoutX="570.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/Mij.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Group>
+            <Text fill="WHITE" layoutX="36.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aantal uren zon per dag">
+               <font>
+                  <Font name="Segoe UI Semibold" size="24.0" />
+               </font>
+            </Text>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d9d9d9" height="384.0" layoutX="43.0" layoutY="267.0" stroke="#d9d9d9" strokeLineCap="ROUND" strokeWidth="10.0" width="607.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d9d9d9" height="384.0" layoutX="41.0" layoutY="793.0" stroke="#d9d9d9" strokeLineCap="ROUND" strokeWidth="10.0" width="607.0" />
+            <Text fill="WHITE" layoutX="36.0" layoutY="772.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Energie geproduceerd per dag">
+               <font>
+                  <Font name="Segoe UI Semibold" size="24.0" />
+               </font>
+            </Text>
+            <Group layoutX="102.0" layoutY="307.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ef7f00" height="85.0" layoutY="183.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="60.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ef7f00" height="180.0" layoutX="70.0" layoutY="88.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="60.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ef7f00" height="219.0" layoutX="143.0" layoutY="49.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="60.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ef7f00" height="130.0" layoutX="215.0" layoutY="138.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="60.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ef7f00" height="268.0" layoutX="287.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="60.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ef7f00" height="180.0" layoutX="359.0" layoutY="88.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="60.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ef7f00" height="141.0" layoutX="430.0" layoutY="127.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="60.0" />
+               </children>
+            </Group>
+            <Group layoutX="105.0" layoutY="851.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ef7f00" height="85.0" layoutY="183.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="60.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ef7f00" height="180.0" layoutX="70.0" layoutY="88.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="60.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ef7f00" height="219.0" layoutX="143.0" layoutY="49.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="60.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ef7f00" height="130.0" layoutX="215.0" layoutY="138.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="60.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ef7f00" height="268.0" layoutX="287.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="60.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ef7f00" height="180.0" layoutX="359.0" layoutY="88.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="60.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ef7f00" height="141.0" layoutX="430.0" layoutY="127.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="60.0" />
+                  <Group layoutX="-54.0" layoutY="-6.0">
+                     <children>
+                        <Text layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 ">
+                           <font>
+                              <Font name="Segoe UI Semibold" size="12.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="1.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
+                           <font>
+                              <Font name="Segoe UI Semibold" size="12.0" />
+                           </font>
+                        </Text>
+                        <Text layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2">
+                           <font>
+                              <Font name="Segoe UI Semibold" size="12.0" />
+                           </font>
+                        </Text>
+                        <Text layoutY="191.94921875" strokeType="OUTSIDE" strokeWidth="0.0" text="3">
+                           <font>
+                              <Font name="Segoe UI Semibold" size="12.0" />
+                           </font>
+                        </Text>
+                        <Text layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4">
+                           <font>
+                              <Font name="Segoe UI Semibold" size="12.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="1.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5">
+                           <font>
+                              <Font name="Segoe UI Semibold" size="12.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="1.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="6">
+                           <font>
+                              <Font name="Segoe UI Semibold" size="12.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="2.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="7">
+                           <font>
+                              <Font name="Segoe UI Semibold" size="12.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="2.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="8">
+                           <font>
+                              <Font name="Segoe UI Semibold" size="12.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="2.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="9">
+                           <font>
+                              <Font name="Segoe UI Semibold" size="12.0" />
+                           </font>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="10">
+                           <font>
+                              <Font name="Segoe UI Semibold" size="12.0" />
+                           </font>
+                        </Text>
+                        <Line endX="15.666664123535156" layoutX="20.0" layoutY="272.44921875" startX="-10.5" />
+                        <Line endX="15.666664123535156" layoutX="20.0" layoutY="247.44921875" startX="-10.5" />
+                        <Line endX="15.666664123535156" layoutX="20.0" layoutY="217.44921875" startX="-10.5" />
+                        <Line endX="15.666664123535156" layoutX="19.0" layoutY="189.44921875" startX="-10.5" />
+                        <Line endX="15.666664123535156" layoutX="20.0" layoutY="158.44921875" startX="-10.5" />
+                        <Line endX="15.666664123535156" layoutX="20.0" layoutY="131.44921875" startX="-10.5" />
+                        <Line endX="15.666664123535156" layoutX="21.0" layoutY="102.44921875" startX="-10.5" />
+                        <Line endX="15.666664123535156" layoutX="20.0" layoutY="76.44921875" startX="-10.5" />
+                        <Line endX="15.666664123535156" layoutX="21.0" layoutY="49.44921875" startX="-10.5" />
+                        <Line endX="15.666664123535156" layoutX="21.0" layoutY="24.44921875" startX="-10.5" />
+                        <Line endX="11.333335876464844" layoutX="24.0" layoutY="-2.55078125" startX="-10.5" />
+                        <Text layoutX="76.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ma">
+                           <font>
+                              <Font name="Segoe UI Semibold" size="12.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="143.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Di">
+                           <font>
+                              <Font name="Segoe UI Semibold" size="12.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="216.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Woe">
+                           <font>
+                              <Font name="Segoe UI Semibold" size="12.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="290.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Do">
+                           <font>
+                              <Font name="Segoe UI Semibold" size="12.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="362.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vr">
+                           <font>
+                              <Font name="Segoe UI Semibold" size="12.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="436.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zat">
+                           <font>
+                              <Font name="Segoe UI Semibold" size="12.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="507.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zo">
+                           <font>
+                              <Font name="Segoe UI Semibold" size="12.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Group>
+               </children>
+            </Group>
+            <Group layoutX="50.0" layoutY="299.0">
+               <children>
+                  <Text layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 ">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="1.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text layoutY="191.94921875" strokeType="OUTSIDE" strokeWidth="0.0" text="3">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="1.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="1.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="6">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="2.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="7">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="2.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="8">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="2.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="9">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="10">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Line endX="15.666664123535156" layoutX="20.0" layoutY="272.44921875" startX="-10.5" />
+                  <Line endX="15.666664123535156" layoutX="20.0" layoutY="247.44921875" startX="-10.5" />
+                  <Line endX="15.666664123535156" layoutX="20.0" layoutY="217.44921875" startX="-10.5" />
+                  <Line endX="15.666664123535156" layoutX="19.0" layoutY="189.44921875" startX="-10.5" />
+                  <Line endX="15.666664123535156" layoutX="20.0" layoutY="158.44921875" startX="-10.5" />
+                  <Line endX="15.666664123535156" layoutX="20.0" layoutY="131.44921875" startX="-10.5" />
+                  <Line endX="15.666664123535156" layoutX="21.0" layoutY="102.44921875" startX="-10.5" />
+                  <Line endX="15.666664123535156" layoutX="20.0" layoutY="76.44921875" startX="-10.5" />
+                  <Line endX="15.666664123535156" layoutX="21.0" layoutY="49.44921875" startX="-10.5" />
+                  <Line endX="15.666664123535156" layoutX="21.0" layoutY="24.44921875" startX="-10.5" />
+                  <Line endX="11.333335876464844" layoutX="24.0" layoutY="-2.55078125" startX="-10.5" />
+                  <Text layoutX="76.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ma">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="143.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Di">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="213.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Woe">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="290.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Do">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="362.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vr">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="436.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zat">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="507.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zo">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="12.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Group>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
