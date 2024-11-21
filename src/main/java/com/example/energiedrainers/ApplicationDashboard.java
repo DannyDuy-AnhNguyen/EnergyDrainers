@@ -5,12 +5,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class HomeNotLoggedInApplication extends Application {
+public class ApplicationDashboard extends Application{
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("HomeNotLoggedIn.fxml"));
-        Scene scene = new Scene(loader.load());
+    public void start(Stage primaryStage) throws Exception{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
+        Scene scene = new Scene(loader.load(), 700, 895);
 
         primaryStage.setTitle("Sundrainers App");
         primaryStage.setScene(scene);
