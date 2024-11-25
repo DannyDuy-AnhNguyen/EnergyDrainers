@@ -24,12 +24,12 @@
                         <Font name="Segoe UI Semibold" size="24.0" />
                      </font>
                   </Text>
-                  <Text fill="#d68f0b" layoutX="33.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home">
+                  <Text layoutX="33.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home">
                      <font>
                         <Font name="Segoe UI Semibold" size="24.0" />
                      </font>
                   </Text>
-                  <Text layoutX="182.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Apparaat">
+                  <Text fill="#d68f0b" layoutX="182.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Apparaat">
                      <font>
                         <Font name="Segoe UI Semibold" size="24.0" />
                      </font>

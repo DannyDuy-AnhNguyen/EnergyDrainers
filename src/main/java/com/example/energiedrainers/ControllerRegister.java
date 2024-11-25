@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class ControllerRegister {
@@ -21,18 +22,18 @@ public class ControllerRegister {
 
 //Isn't working yet🥲
     @FXML
-    public void handleLinkAction(javafx.event.ActionEvent event){
+    public void handleLinkAction(MouseEvent event){
         System.out.println("Link has been clicked.");
         try {
             // Load the next page (for example, a login page or registration page)
             FXMLLoader loader = new FXMLLoader(getClass().getResource("LoginPage.fxml"));
-            Parent root = loader.load();
+            Scene homeScene = new Scene(loader.load());
 
-            // Create the new scene and set it on the current stage
-            Scene newScene = new Scene(root, 700, 895);
-            Stage stage = (Stage) event.getSource(); // Get the current stage
-            stage.setScene(newScene);
-            stage.show();
+            // Get the current stage
+            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+
+            // Set the new scene
+            stage.setScene(homeScene);
         } catch (Exception e) {
             e.printStackTrace();  // Handle the exception properly
         }

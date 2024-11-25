@@ -35,7 +35,7 @@ public class ControllerDashboard {
         System.out.println("Apparaat button clicked!");
         try {
             // Load the new FXML
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("ApparaatOmvormerInfo.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ApparaatVoegNieuweApparaat.fxml"));
             Scene homeScene = new Scene(loader.load());
 
             // Get the current stage

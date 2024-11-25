@@ -35,7 +35,7 @@ public class ControllerMijGegevens {
         System.out.println("Apparaat button clicked!");
         try {
             // Load the new FXML
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("ApparaatOmvormerInfo.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ApparaatVoegNieuweApparaat.fxml"));
             Scene homeScene = new Scene(loader.load());
 
             // Get the current stage
@@ -72,6 +72,24 @@ public class ControllerMijGegevens {
         try {
             // Load the new FXML
             FXMLLoader loader = new FXMLLoader(getClass().getResource("MijGegevens.fxml"));
+            Scene homeScene = new Scene(loader.load());
+
+            // Get the current stage
+            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+
+            // Set the new scene
+            stage.setScene(homeScene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void handleLogOutButton(MouseEvent event) {
+        System.out.println("Logout clicked!");
+        try {
+            // Load the new FXML
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("HomeNotLoggedIn.fxml"));
             Scene homeScene = new Scene(loader.load());
 
             // Get the current stage

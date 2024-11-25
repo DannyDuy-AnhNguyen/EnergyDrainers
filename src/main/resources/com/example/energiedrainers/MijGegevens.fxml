@@ -20,12 +20,12 @@
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d9d9d9" height="141.0" stroke="#d9d9d9" strokeLineCap="ROUND" strokeMiterLimit="20.0" strokeType="OUTSIDE" strokeWidth="10.0" style="-fx-background-radius: 10;" width="680.0" />
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#909090" height="141.0" layoutX="539.0" stroke="#d9d9d9" strokeLineCap="ROUND" strokeMiterLimit="20.0" strokeType="OUTSIDE" strokeWidth="10.0" style="-fx-background-radius: 10;" width="124.0" />
-                  <Text layoutX="583.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mij">
+                  <Text fill="#d68f0b" layoutX="583.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mij">
                      <font>
                         <Font name="Segoe UI Semibold" size="24.0" />
                      </font>
                   </Text>
-                  <Text fill="#d68f0b" layoutX="33.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home">
+                  <Text layoutX="33.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home">
                      <font>
                         <Font name="Segoe UI Semibold" size="24.0" />
                      </font>
@@ -86,8 +86,8 @@
                </image>
             </ImageView>
             <Line endX="602.0" layoutX="98.0" layoutY="558.0" startX="-100.0" stroke="WHITE" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d9d9d9" height="84.0" layoutX="249.0" layoutY="620.0" stroke="#d9d9d9" strokeLineCap="ROUND" strokeWidth="20.0" width="181.0" />
-            <Text layoutX="261.0" layoutY="675.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Uitloggen">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d9d9d9" height="84.0" layoutX="249.0" layoutY="620.0" onMouseClicked="#handleLogOutButton" stroke="#d9d9d9" strokeLineCap="ROUND" strokeWidth="20.0" width="181.0" />
+            <Text layoutX="261.0" layoutY="675.0" mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Uitloggen">
                <font>
                   <Font name="Segoe UI Semibold" size="36.0" />
                </font>
