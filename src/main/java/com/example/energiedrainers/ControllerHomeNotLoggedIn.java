@@ -32,7 +32,6 @@ public class ControllerHomeNotLoggedIn {
     public void initialize() {
         // Perform any setup tasks here
         welcomeText.setText("Welkom bij Sundrainers!");
-        statusLabel.setText("Ready to go!"); // Set initial feedback
     }
 
     // Handle login button action

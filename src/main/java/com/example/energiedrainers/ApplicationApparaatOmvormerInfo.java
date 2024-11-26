@@ -22,3 +22,6 @@ public class ApplicationApparaatOmvormerInfo extends Application {
         launch(args);
     }
 }
+
+
+
