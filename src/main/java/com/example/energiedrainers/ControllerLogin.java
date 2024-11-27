@@ -16,27 +16,31 @@ import java.sql.ResultSet;
 public class ControllerLogin {
 
     @FXML
-    private TextField username;
+    private TextField userName;
 
     @FXML
     private PasswordField passwordField;
 
-    @FXML
-    private TextField loginMessageLabel;
+//    @FXML
+//    private TextField loginMessageLabel;
 
     // Validate if the username and password fields are non-blank
     private boolean isInputValid() {
-        return !username.getText().isBlank() && !passwordField.getText().isBlank();
+        return !userName.getText().isBlank() && !passwordField.getText().isBlank();
     }
 
     // Triggered when the login button is clicked
     @FXML
-    public void loginButtonOnAction(ActionEvent event) {
+    public void handleLoginButtonOnAction(ActionEvent event) {
+        String username = userName.getText();
+        String password = passwordField.getText();
+
+
         if (!isInputValid()) {
-            loginMessageLabel.setText("Please enter both username and password.");
+            System.out.println("Please enter both username and password.");
         } else {
-            loginMessageLabel.setText(""); // Clear any previous messages
-            validateLogin(username.getText(), passwordField.getText(), event);
+            System.out.println("Check credentials"); // Clear any previous messages
+            validateLogin(username, password, event);
         }
     }
 
@@ -69,7 +73,7 @@ public class ControllerLogin {
 
             // If a result is found, proceed with the login
             if (queryResult.next()) {
-                loginMessageLabel.setText("Login Successful!");
+                System.out.println("Login Successful!");
 
                 // Load the home scene after successful login
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("HomeLoggedIn.fxml"));
@@ -78,11 +82,11 @@ public class ControllerLogin {
                 Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
                 stage.setScene(homeScene);
             } else {
-                loginMessageLabel.setText("Invalid username or password.");
+                System.out.println("Invalid username or password.");
             }
         } catch (Exception e) {
             e.printStackTrace();
-            loginMessageLabel.setText("An error occurred while logging in.");
+            System.out.println("An error occurred while logging in.");
         }
     }
 }
