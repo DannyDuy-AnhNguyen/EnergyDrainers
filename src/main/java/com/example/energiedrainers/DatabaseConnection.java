@@ -11,7 +11,7 @@ public class DatabaseConnection {
         String databaseName = "energydrainers";
         String databaseUser = "root";
         String databasePassword = "";
-        String url = "jdbc:mysql://localhost/:3306/" + databaseName;
+        String url = "jdbc:mysql://localhost:3306/" + databaseName;
 
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
