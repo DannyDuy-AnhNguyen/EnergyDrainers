@@ -23,14 +23,13 @@ DROP TABLE IF EXISTS `klant`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `klant` (
-  `KlantID` int(5) NOT NULL AUTO_INCREMENT,
+  `KlantID` char(5) NOT NULL,
   `Telefoonnummer` varchar(10) DEFAULT NULL,
   `Voornaam` varchar(40) NOT NULL,
   `Achternaam` varchar(40) NOT NULL,
   `Gebruikersnaam` varchar(30) NOT NULL,
   `Wachtwoord` varchar(255) NOT NULL,
-  PRIMARY KEY (`KlantID`),
-  UNIQUE KEY `KlantID` (`KlantID`)
+  PRIMARY KEY (`KlantID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -51,17 +50,16 @@ DROP TABLE IF EXISTS `meting`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `meting` (
-  `MetingID` int(5) NOT NULL AUTO_INCREMENT,
+  `MetingID` int NOT NULL,
   `Tijdstip` datetime NOT NULL,
-  `HOEK_kantelservo` int(3) DEFAULT NULL,
-  `HOEK_draaiservo` int(3) DEFAULT NULL,
-  `LDR_BovenRechts` int(4) DEFAULT NULL,
-  `LDR_BovenLinks` int(4) DEFAULT NULL,
-  `LDR_OnderRechts` int(4) DEFAULT NULL,
-  `LDR_OnderLinks` int(4) DEFAULT NULL,
-  `TrackerID` int(5) NOT NULL,
+  `HOEK_kantelservo` int DEFAULT NULL,
+  `HOEK_draaiservo` int DEFAULT NULL,
+  `LDR_BovenRechts` int DEFAULT NULL,
+  `LDR_BovenLinks` int DEFAULT NULL,
+  `LDR_OnderRechts` int DEFAULT NULL,
+  `LDR_OnderLinks` int DEFAULT NULL,
+  `TrackerID` char(7) NOT NULL,
   PRIMARY KEY (`MetingID`),
-  UNIQUE KEY `MetingID` (`MetingID`),
   KEY `TrackerID` (`TrackerID`),
   CONSTRAINT `meting_ibfk_1` FOREIGN KEY (`TrackerID`) REFERENCES `tracker` (`TrackerID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -84,11 +82,11 @@ DROP TABLE IF EXISTS `tracker`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tracker` (
-  `TrackerID` int(5) NOT NULL AUTO_INCREMENT,
-  `KlantID` int(5) NOT NULL,
+  `TrackerID` char(7) NOT NULL,
+  `klantID` char(5) NOT NULL,
   PRIMARY KEY (`TrackerID`),
-  UNIQUE KEY `TrackerID` (`TrackerID`),
-  KEY `KlantID` (`KlantID`)
+  KEY `klantID` (`klantID`),
+  CONSTRAINT `tracker_ibfk_1` FOREIGN KEY (`klantID`) REFERENCES `klant` (`KlantID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -110,4 +108,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-11-28 13:11:14
+-- Dump completed on 2024-11-25 10:16:13

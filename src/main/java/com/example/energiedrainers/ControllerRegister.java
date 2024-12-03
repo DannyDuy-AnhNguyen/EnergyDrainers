@@ -11,8 +11,17 @@ import javafx.stage.Stage;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+//For hashing the password
+import org.mindrot.jbcrypt.BCrypt;
+
 
 public class ControllerRegister {
+
+    @FXML
+    DatabaseConnection databaseConnection = new DatabaseConnection();
+    Connection connection = databaseConnection.getConnection();
 
     @FXML
     private TextField firstname;
@@ -31,6 +40,16 @@ public class ControllerRegister {
 
     @FXML
     private PasswordField repeatPasswordField;
+
+////    This function is for hashing the password🙂
+
+    // This function is for hashing the password with bcrypt
+    public String hashPassword(String password) {
+        // Generate a salt and hash the password using bcrypt
+        return BCrypt.hashpw(password, BCrypt.gensalt());
+    }
+
+
 
     @FXML
     public void handleRegisterAction(ActionEvent event) {
@@ -54,18 +73,22 @@ public class ControllerRegister {
         registerUser(firstName, lastName, userName, phone, password, event);
     }
 
+
+
     private void registerUser(String firstName, String lastName, String userName, String phone, String password, ActionEvent event) {
-        DatabaseConnection databaseConnection = new DatabaseConnection();
-        Connection connection = databaseConnection.getConnection();
+        connection = databaseConnection.getConnection();
+
 
         String insertQuery = "INSERT INTO klant (Telefoonnummer, Voornaam, Achternaam, Gebruikersnaam, Wachtwoord) VALUES (?, ?, ?, ?, ?)";
+
+        String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
 
         try (PreparedStatement preparedStatement = connection.prepareStatement(insertQuery)) {
             preparedStatement.setString(1, phone);
             preparedStatement.setString(2, firstName);
             preparedStatement.setString(3, lastName);
             preparedStatement.setString(4, userName);
-            preparedStatement.setString(5, password);
+            preparedStatement.setString(5, hashedPassword);
 
             int rowsInserted = preparedStatement.executeUpdate();
             if (rowsInserted > 0) {
