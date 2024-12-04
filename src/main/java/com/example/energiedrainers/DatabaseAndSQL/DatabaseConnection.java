@@ -1,4 +1,4 @@
-package com.example.energiedrainers;
+package com.example.energiedrainers.DatabaseAndSQL;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,7 +7,6 @@ import java.sql.SQLException;
 public class DatabaseConnection {
     public Connection databaseLink;
 
-//  Danny's Connection to the database
     public Connection getConnection(){
         String databaseName = "energydrainers";
         String databaseUser = "root";

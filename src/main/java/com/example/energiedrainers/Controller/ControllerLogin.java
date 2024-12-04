@@ -1,6 +1,6 @@
 package com.example.energiedrainers.Controller;
 
-import com.example.energiedrainers.DatabaseConnection;
+import com.example.energiedrainers.DatabaseAndSQL.DatabaseConnection;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
