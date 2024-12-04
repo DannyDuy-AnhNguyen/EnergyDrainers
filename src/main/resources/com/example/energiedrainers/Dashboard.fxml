@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<ScrollPane prefHeight="1484.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.energiedrainers.ControllerDashboard">   <content>
+<ScrollPane prefHeight="1484.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.energiedrainers.Controller.ControllerDashboard">   <content>
       <VBox prefHeight="845.0" prefWidth="700.0">
          <children>
             <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="1485.0" prefWidth="700.0">

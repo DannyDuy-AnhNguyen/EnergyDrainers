@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `klant`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `klant` (
-  `KlantID` int(5) NOT NULL AUTO_INCREMENT,
+  `KlantID` int NOT NULL AUTO_INCREMENT,
   `Telefoonnummer` varchar(10) DEFAULT NULL,
   `Voornaam` varchar(40) NOT NULL,
   `Achternaam` varchar(40) NOT NULL,
@@ -31,7 +31,7 @@ CREATE TABLE `klant` (
   `Wachtwoord` varchar(255) NOT NULL,
   PRIMARY KEY (`KlantID`),
   UNIQUE KEY `KlantID` (`KlantID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,6 +40,7 @@ CREATE TABLE `klant` (
 
 LOCK TABLES `klant` WRITE;
 /*!40000 ALTER TABLE `klant` DISABLE KEYS */;
+INSERT INTO `klant` VALUES (1,'Test','Test','Test','Test','Test'),(2,'112','Skibidi','Toilet','Brainrot','Jr7Qcl+69IQwTgpyNg87kY+XS5OEwr4kbLXqTltmnPI='),(3,'911','Sonic','the Hedhehog','Sonic1991','$2a$10$r0.ALFeE2HKaEBGxW2d34OCbXbjXsp915ctb12o53t/1HAqXQf7Ri'),(4,'112','Friedrich','Nietzsche','Nietzsche1844','$2a$10$ssRFZJqf2ZkYNR7pPaKPhuMLNGwYAi3bCuGfdLdiJ/lfbO6h7oBB.'),(5,'112','Laozi','Taoism','TaoismForLife','$2a$10$r0Ftq9voxzWiS4X0fAn60Oi4OjEU5kPwY9S89SQAV7gxmWTSKKlNC'),(6,'112','Sun','Drainers','SunDrainers','$2a$10$RRW2wjZJoEE6QfKgpkTe6OKGwMaDsTJZgOYg41IwHFThC4X6.3vu2'),(7,'112','Danny','Phantom','DannyPhantom','$2a$10$R.YkIRDrIX7uI1z92EpWfe2yTDwBltDcjjN2Sl.a6ZoLXnsAo2K4m'),(8,'3107142563','Pikachu','Ketchup','PikachuKethup','$2a$10$aFloLnugkTjon61ZROX/hu6F50RBfI2JvNPWWXXKBDnpikO7.ivfa'),(9,'test','test','test','test','$2a$10$IWIZaZFKFH3lChe0H065VO7K1gfV20wxoZoPerQhi8hETwEChnxrS'),(10,'1234','Koe','Art','KoeArt','$2a$10$pp3IE7gHkms4LzQtTH16i.clM6V8UuJIEyTEX5sqMQUQyNyOxlF.W');
 /*!40000 ALTER TABLE `klant` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -51,15 +52,15 @@ DROP TABLE IF EXISTS `meting`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `meting` (
-  `MetingID` int(5) NOT NULL AUTO_INCREMENT,
+  `MetingID` int NOT NULL AUTO_INCREMENT,
   `Tijdstip` datetime NOT NULL,
-  `HOEK_kantelservo` int(3) DEFAULT NULL,
-  `HOEK_draaiservo` int(3) DEFAULT NULL,
-  `LDR_BovenRechts` int(4) DEFAULT NULL,
-  `LDR_BovenLinks` int(4) DEFAULT NULL,
-  `LDR_OnderRechts` int(4) DEFAULT NULL,
-  `LDR_OnderLinks` int(4) DEFAULT NULL,
-  `TrackerID` int(5) NOT NULL,
+  `HOEK_kantelservo` int DEFAULT NULL,
+  `HOEK_draaiservo` int DEFAULT NULL,
+  `LDR_BovenRechts` int DEFAULT NULL,
+  `LDR_BovenLinks` int DEFAULT NULL,
+  `LDR_OnderRechts` int DEFAULT NULL,
+  `LDR_OnderLinks` int DEFAULT NULL,
+  `TrackerID` int NOT NULL,
   PRIMARY KEY (`MetingID`),
   UNIQUE KEY `MetingID` (`MetingID`),
   KEY `TrackerID` (`TrackerID`),
@@ -84,8 +85,8 @@ DROP TABLE IF EXISTS `tracker`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tracker` (
-  `TrackerID` int(5) NOT NULL AUTO_INCREMENT,
-  `KlantID` int(5) NOT NULL,
+  `TrackerID` int NOT NULL AUTO_INCREMENT,
+  `KlantID` int NOT NULL,
   PRIMARY KEY (`TrackerID`),
   UNIQUE KEY `TrackerID` (`TrackerID`),
   KEY `KlantID` (`KlantID`)
@@ -110,4 +111,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-11-28 13:11:14
+-- Dump completed on 2024-12-04 10:04:38

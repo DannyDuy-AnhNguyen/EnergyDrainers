@@ -1,5 +1,6 @@
-package com.example.energiedrainers;
+package com.example.energiedrainers.Controller;
 
+import com.example.energiedrainers.DatabaseConnection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,7 +12,6 @@ import javafx.stage.Stage;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 
 //For hashing the password
 import org.mindrot.jbcrypt.BCrypt;
@@ -95,7 +95,7 @@ public class ControllerRegister {
                 System.out.println("User registered successfully!");
 
                 // Redirect to home page
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("HomeLoggedIn.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/HomeLoggedIn.fxml"));
                 Scene homeScene = new Scene(loader.load());
                 Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
                 stage.setScene(homeScene);
@@ -112,7 +112,7 @@ public void handleLinkAction(MouseEvent event){
     System.out.println("Link has been clicked.");
     try {
         // Load the next page (for example, a login page or registration page)
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("LoginPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/LoginPage.fxml"));
         Scene homeScene = new Scene(loader.load());
 
         // Get the current stage

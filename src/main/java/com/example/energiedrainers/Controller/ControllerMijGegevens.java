@@ -1,4 +1,4 @@
-package com.example.energiedrainers;
+package com.example.energiedrainers.Controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,7 +17,7 @@ public class ControllerMijGegevens {
         System.out.println("Home button clicked!");
         try {
             // Load the new FXML
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("HomeLoggedIn.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/HomeLoggedIn.fxml"));
             Scene homeScene = new Scene(loader.load());
 
             // Get the current stage
@@ -35,7 +35,7 @@ public class ControllerMijGegevens {
         System.out.println("Apparaat button clicked!");
         try {
             // Load the new FXML
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("ApparaatVoegNieuweApparaat.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/ApparaatVoegNieuweApparaat.fxml"));
             Scene homeScene = new Scene(loader.load());
 
             // Get the current stage
@@ -53,7 +53,7 @@ public class ControllerMijGegevens {
         System.out.println("Gegevens button clicked!");
         try {
             // Load the new FXML
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/Dashboard.fxml"));
             Scene homeScene = new Scene(loader.load());
 
             // Get the current stage
@@ -71,7 +71,7 @@ public class ControllerMijGegevens {
         System.out.println("Mij button clicked!");
         try {
             // Load the new FXML
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("MijGegevens.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/MijGegevens.fxml"));
             Scene homeScene = new Scene(loader.load());
 
             // Get the current stage
@@ -89,7 +89,7 @@ public class ControllerMijGegevens {
         System.out.println("Logout clicked!");
         try {
             // Load the new FXML
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("HomeNotLoggedIn.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/HomeNotLoggedIn.fxml"));
             Scene homeScene = new Scene(loader.load());
 
             // Get the current stage
