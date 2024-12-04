@@ -1,4 +1,4 @@
-package com.example.energiedrainers;
+package com.example.energiedrainers.Application;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -9,7 +9,7 @@ public class ApplicationHomeLoggedIn extends Application{
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("HomeLoggedIn.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/HomeLoggedIn.fxml"));
         Scene scene = new Scene(loader.load(), 700, 895);
 
         primaryStage.setTitle("Sundrainers App");

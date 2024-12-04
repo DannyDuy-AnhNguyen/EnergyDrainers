@@ -1,5 +1,6 @@
-package com.example.energiedrainers;
+package com.example.energiedrainers.Controller;
 
+import com.example.energiedrainers.DatabaseAndSQL.DatabaseConnection;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -9,7 +10,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -54,7 +54,7 @@ public class ControllerLogin {
     @FXML
     public void handleLinkAction(MouseEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("RegisterPage.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/RegisterPage.fxml"));
             Scene registerScene = new Scene(loader.load());
 
             Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
@@ -92,7 +92,7 @@ public class ControllerLogin {
                     System.out.println("Login Successful!");
 
                     // Load the home scene after successful login
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("HomeLoggedIn.fxml"));
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/HomeLoggedIn.fxml"));
                     Scene homeScene = new Scene(loader.load());
 
                     Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();

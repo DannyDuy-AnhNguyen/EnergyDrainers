@@ -1,4 +1,4 @@
-package com.example.energiedrainers;
+package com.example.energiedrainers.Controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -40,7 +40,7 @@ public class ControllerHomeNotLoggedIn {
         System.out.println("Login button clicked!");
         try {
             // Load the new FXML
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("LoginPage.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/LoginPage.fxml"));
             Scene homeScene = new Scene(loader.load());
 
             // Get the current stage
@@ -61,7 +61,7 @@ public class ControllerHomeNotLoggedIn {
         // Add your account creation logic here
         try {
             // Load the new FXML
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("RegisterPage.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/RegisterPage.fxml"));
             Scene homeScene = new Scene(loader.load());
 
             // Get the current stage
