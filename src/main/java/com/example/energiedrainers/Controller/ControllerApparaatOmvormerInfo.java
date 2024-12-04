@@ -1,4 +1,4 @@
-package com.example.energiedrainers;
+package com.example.energiedrainers.Controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,7 +8,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class ControllerDashboard {
+public class ControllerApparaatOmvormerInfo {
+
 
     //    This is the navigation bar. Click on the image to navigate
 
@@ -83,4 +84,5 @@ public class ControllerDashboard {
             e.printStackTrace();
         }
     }
+
 }

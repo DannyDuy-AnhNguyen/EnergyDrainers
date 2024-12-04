@@ -1,4 +1,4 @@
-package com.example.energiedrainers;
+package com.example.energiedrainers.Controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

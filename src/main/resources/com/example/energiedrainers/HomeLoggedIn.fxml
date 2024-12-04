@@ -11,7 +11,7 @@
 
 <?import javafx.scene.control.Button?>
 <VBox prefHeight="845.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.example.energiedrainers.ControllerHomeLoggedIn">
+      fx:controller="com.example.energiedrainers.Controller.ControllerHomeLoggedIn">
    <children>
       <AnchorPane prefHeight="845.0" prefWidth="700.0">
          <children>

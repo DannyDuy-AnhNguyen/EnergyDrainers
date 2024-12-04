@@ -1,4 +1,4 @@
-package com.example.energiedrainers;
+package com.example.energiedrainers.Controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,42 +8,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class ControllerApparaatOmvormerToegevoegd {
+public class ControllerDashboard {
+
     //    This is the navigation bar. Click on the image to navigate
-    @FXML
-    public void handleInfoDevice(MouseEvent event){
-        try {
-            // Load the new FXML
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("ApparaatOmvormerinfo.fxml"));
-            Scene homeScene = new Scene(loader.load());
-
-            // Get the current stage
-            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-
-            // Set the new scene
-            stage.setScene(homeScene);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    public void handleAddDevice(MouseEvent event){
-        try {
-            // Load the new FXML
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("ApparaatVoegNieuweApparaatBluetooth.fxml"));
-            Scene homeScene = new Scene(loader.load());
-
-            // Get the current stage
-            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-
-            // Set the new scene
-            stage.setScene(homeScene);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
 
     @FXML
     public void handleHomeButton(MouseEvent event) {

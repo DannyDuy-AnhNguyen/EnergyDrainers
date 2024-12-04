@@ -1,15 +1,14 @@
-package com.example.energiedrainers;
+package com.example.energiedrainers.Application;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class ApplicationHomeLoggedIn extends Application{
-
+public class ApplicationApparaatVoegNieuweApparaatBluetooth extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("HomeLoggedIn.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ApparaatVoegNieuweApparaatBluetooth.fxml"));
         Scene scene = new Scene(loader.load(), 700, 895);
 
         primaryStage.setTitle("Sundrainers App");

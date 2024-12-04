@@ -1,4 +1,4 @@
-package com.example.energiedrainers;
+package com.example.energiedrainers.Controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,13 +8,13 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class ControllerApparaatVoegNieuweApparaatBluetooth {
+public class ControllerApparaatVoegNieuweApparaat {
 
     @FXML
-    public void handleDeviceAdded(MouseEvent event){
+    public void handleAddDevice(MouseEvent event){
         try {
             // Load the new FXML
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("ApparaatOmvormerToegevoegd.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ApparaatVoegNieuweApparaatBluetooth.fxml"));
             Scene homeScene = new Scene(loader.load());
 
             // Get the current stage
