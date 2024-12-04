@@ -1,5 +1,5 @@
 <component name="libraryTable">
-  <library name="jbcrypt-0.5">
+  <library name="jbcrypt-0.4">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/library/jbcrypt-0.4.jar!/" />
     </CLASSES>

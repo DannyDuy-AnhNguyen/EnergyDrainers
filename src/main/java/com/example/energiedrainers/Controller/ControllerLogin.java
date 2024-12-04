@@ -4,6 +4,7 @@ import com.example.energiedrainers.DatabaseAndSQL.DatabaseConnection;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -26,6 +27,14 @@ public class ControllerLogin {
 
     @FXML
     private PasswordField passwordField;
+
+    @FXML
+    private Label errorLabel;
+
+    public void initialize() {
+        errorLabel.setVisible(false);
+    }
+
 
 //    @FXML
 //    private TextField loginMessageLabel;
@@ -98,14 +107,20 @@ public class ControllerLogin {
                     Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
                     stage.setScene(homeScene);
                 } else {
-                    System.out.println("Invalid username or password.");
+                    errorLabel.setText("Invalid username or password.");
                 }
             } else {
-                System.out.println("Invalid username or password.");
+                errorLabel.setText("Invalid username or password.");
             }
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("An error occurred while logging in.");
+            errorLabel.setText("An error occurred while logging in.");
+
+
+
+
+
+
         }
     }
 
