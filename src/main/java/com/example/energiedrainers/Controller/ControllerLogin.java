@@ -1,6 +1,8 @@
 package com.example.energiedrainers.Controller;
 
 import com.example.energiedrainers.DatabaseAndSQL.DatabaseConnection;
+import com.example.energiedrainers.Session.UserSession;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -20,7 +22,7 @@ import org.mindrot.jbcrypt.BCrypt;
 
 //
 
-public class ControllerLogin {
+public class  ControllerLogin {
 
     @FXML
     private TextField userName;
@@ -44,10 +46,13 @@ public class ControllerLogin {
         return !userName.getText().isBlank() && !passwordField.getText().isBlank();
     }
 
+
     // Triggered when the login button is clicked
     @FXML
     public void handleLoginButtonOnAction(ActionEvent event) {
+
         String username = userName.getText();
+
         String password = passwordField.getText();
 
 
@@ -84,7 +89,8 @@ public class ControllerLogin {
         DatabaseConnection connectionNow = new DatabaseConnection();
         Connection connectDB = connectionNow.getConnection();
 
-        String verifyLoginQuery = "SELECT Wachtwoord FROM klant WHERE Gebruikersnaam = ?";
+
+        String verifyLoginQuery = "SELECT KlantID, Telefoonnummer, Wachtwoord FROM klant WHERE Gebruikersnaam = ?";
 
         try (PreparedStatement preparedStatement = connectDB.prepareStatement(verifyLoginQuery)) {
             preparedStatement.setString(1, username);
@@ -99,6 +105,12 @@ public class ControllerLogin {
                 // Verify the entered password against the stored hash using bcrypt
                 if (verifyPassword(password, storedHash)) {
                     System.out.println("Login Successful!");
+
+                    int id = queryResult.getInt("KlantID");
+//                    username = queryResult.getString("Gebruikersnaam");
+                    String phoneNumber = queryResult.getString("Telefoonnummer");
+
+                    UserSession.setSession(id, username, phoneNumber);
 
                     // Load the home scene after successful login
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/HomeLoggedIn.fxml"));

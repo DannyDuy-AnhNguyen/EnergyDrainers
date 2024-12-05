@@ -1,5 +1,6 @@
 package com.example.energiedrainers.Controller;
 
+import com.example.energiedrainers.Session.UserSession;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -38,6 +39,7 @@ public class ControllerHomeNotLoggedIn {
     @FXML
     public void handleLoginButtonAction(ActionEvent event) {
         System.out.println("Login button clicked!");
+        System.out.println("Session data after clearing: " + UserSession.getSession());
         try {
             // Load the new FXML
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/LoginPage.fxml"));
@@ -57,6 +59,7 @@ public class ControllerHomeNotLoggedIn {
     @FXML
     public void handleCreateAccountButtonAction(ActionEvent event) {
         System.out.println("Create Account button clicked!");
+        System.out.println("Session data after clearing: " + UserSession.getSession());
         statusLabelTwo.setText("Account creation started!");
         // Add your account creation logic here
         try {

@@ -1,9 +1,11 @@
 package com.example.energiedrainers.Controller;
 
+import com.example.energiedrainers.Session.UserSession;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -11,10 +13,21 @@ import java.io.IOException;
 public class ControllerMijGegevens {
 
     //    This is the navigation bar. Click on the image to navigate
+    @FXML
+    private Text usernameText;
+
+    @FXML
+    private Text phonenumberText;
+
+    public void initialize(){
+        usernameText.setText(UserSession.getUsername());
+        phonenumberText.setText(UserSession.getPhoneNumber());
+    }
 
     @FXML
     public void handleHomeButton(MouseEvent event) {
         System.out.println("Home button clicked!");
+        System.out.println("Session data after clearing: " + UserSession.getSession());
         try {
             // Load the new FXML
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/HomeLoggedIn.fxml"));
@@ -33,6 +46,7 @@ public class ControllerMijGegevens {
     @FXML
     public void handleApparaatButton(MouseEvent event) {
         System.out.println("Apparaat button clicked!");
+        System.out.println("Session data after clearing: " + UserSession.getSession());
         try {
             // Load the new FXML
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/ApparaatVoegNieuweApparaat.fxml"));
@@ -51,6 +65,7 @@ public class ControllerMijGegevens {
     @FXML
     public void handleGegevensButton(MouseEvent event) {
         System.out.println("Gegevens button clicked!");
+        System.out.println("Session data after clearing: " + UserSession.getSession());
         try {
             // Load the new FXML
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/Dashboard.fxml"));
@@ -69,6 +84,7 @@ public class ControllerMijGegevens {
     @FXML
     public void handleMijButton(MouseEvent event) {
         System.out.println("Mij button clicked!");
+        System.out.println("Session data after clearing: " + UserSession.getSession());
         try {
             // Load the new FXML
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/MijGegevens.fxml"));
@@ -88,6 +104,9 @@ public class ControllerMijGegevens {
     public void handleLogOutButton(MouseEvent event) {
         System.out.println("Logout clicked!");
         try {
+            UserSession.clearSession();
+            System.out.println("Session has been cleared!");
+            System.out.println("Session data after clearing: " + UserSession.getSession());
             // Load the new FXML
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/HomeNotLoggedIn.fxml"));
             Scene homeScene = new Scene(loader.load());
