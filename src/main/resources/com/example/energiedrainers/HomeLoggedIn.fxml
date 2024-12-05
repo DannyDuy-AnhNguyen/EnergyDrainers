@@ -84,7 +84,7 @@
                   </Text>
                </children>
             </Group>
-            <Text fill="#ffe372" layoutX="109.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welkom [gebruikersnaam]" wrappingWidth="586.4462890625">
+            <Text fx:id="usernameText" fill="#ffe372" layoutX="109.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="586.4462890625">
                <font>
                   <Font name="Lucida Sans Unicode" size="40.0" />
                </font>
