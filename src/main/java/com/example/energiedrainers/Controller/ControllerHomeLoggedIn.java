@@ -1,6 +1,8 @@
 package com.example.energiedrainers.Controller;
 
+import com.example.energiedrainers.DatabaseAndSQL.DatabaseConnection;
 import com.example.energiedrainers.Session.UserSession;
+import com.example.energiedrainers.Controller.ControllerGetId;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -9,8 +11,14 @@ import javafx.stage.Stage;
 
 import javafx.scene.input.MouseEvent;
 import java.io.IOException;
+import java.sql.Connection;
 
 public class ControllerHomeLoggedIn {
+
+    @FXML
+    DatabaseConnection databaseConnection = new DatabaseConnection();
+    Connection connection = databaseConnection.getConnection();
+
 
     @FXML
     private Text usernameText;
@@ -43,9 +51,16 @@ public class ControllerHomeLoggedIn {
         }
     }
 
+
+
     @FXML
     public void handleApparaatButton(MouseEvent event) {
-        System.out.println("Apparaat button clicked!");
+        System.out.println("Apparaat button clicked!\nChecks of the user already has a tracker on his name...");
+
+        int CheckKlantTrackerID = ControllerGetId.getKlantIDViaTracker();
+        System.out.println(CheckKlantTrackerID);
+
+
         try {
             // Load the new FXML
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/ApparaatVoegNieuweApparaat.fxml"));
