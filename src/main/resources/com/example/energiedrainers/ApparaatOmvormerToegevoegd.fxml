@@ -81,7 +81,7 @@ fx:controller="com.example.energiedrainers.Controller.ControllerApparaatOmvormer
             </ImageView>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d9d9d9" height="139.0" layoutX="59.0" layoutY="243.0" stroke="#d9d9d9" strokeLineCap="ROUND" strokeWidth="20.0" width="602.0" onMouseClicked="#handleInfoDevice"/>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="106.0" layoutX="98.0" layoutY="258.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="104.0"/>
-            <Text layoutX="218.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[Omvomer's] serienummer" mouseTransparent="true">
+            <Text fx:id="idText" layoutX="218.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" mouseTransparent="true">
                <font>
                   <Font name="Segoe UI Semibold" size="36.0" />
                </font>

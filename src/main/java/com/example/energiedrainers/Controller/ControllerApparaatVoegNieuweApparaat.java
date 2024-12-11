@@ -1,5 +1,7 @@
 package com.example.energiedrainers.Controller;
 
+import com.example.energiedrainers.DatabaseAndSQL.DatabaseConnection;
+import com.example.energiedrainers.Session.UserSession;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -7,26 +9,49 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 
 public class ControllerApparaatVoegNieuweApparaat {
 
     @FXML
-    public void handleAddDevice(MouseEvent event){
-        try {
-            // Load the new FXML
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/ApparaatVoegNieuweApparaatBluetooth.fxml"));
-            Scene homeScene = new Scene(loader.load());
+    DatabaseConnection databaseConnection = new DatabaseConnection();
+    Connection connection = databaseConnection.getConnection();
 
-            // Get the current stage
-            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+    @FXML
+    public void handleAddDevice(MouseEvent event) {
+        String insertQuery = "INSERT INTO tracker (klantID) VALUES(?)";
 
-            // Set the new scene
-            stage.setScene(homeScene);
-        } catch (IOException e) {
+        try (PreparedStatement insertStatement = connection.prepareStatement(insertQuery)) {
+            insertStatement.setInt(1, UserSession.getID());
+
+            int rowsInserted = insertStatement.executeUpdate();
+
+            if (rowsInserted > 0) {
+                System.out.println("Tracker added successfully!");
+
+                // Load the new FXML
+                System.out.println("Test");
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/ApparaatOmvormerToegevoegd.fxml"));
+                Scene homeScene = new Scene(loader.load());
+
+                // Get the current stage
+                System.out.println("Test2");
+                Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+
+                // Set the new scene
+                stage.setScene(homeScene);
+            } else {
+                System.out.println("No rows were inserted. Please try again.");
+                // Optionally show a user alert
+            }
+        } catch (Exception e) {
+            System.out.println("An error occurred while adding tracker.");
             e.printStackTrace();
+            // Optionally show an alert dialog to inform the user
         }
-
     }
+
 
     //    This is the navigation bar. Click on the image to navigate
 
