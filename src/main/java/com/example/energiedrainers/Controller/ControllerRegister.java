@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -13,12 +14,13 @@ import javafx.stage.Stage;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.ResourceBundle;
 
-//For hashing the password
+// For hashing the password
 import org.mindrot.jbcrypt.BCrypt;
 
+// For password validation
+import java.sql.ResultSet;
+import java.util.regex.Pattern;
 
 public class ControllerRegister {
 
@@ -44,7 +46,32 @@ public class ControllerRegister {
     @FXML
     private PasswordField repeatPasswordField;
 
-    ////    This function is for hashing the password🙂
+    @FXML
+    private Label errorLabel;
+
+    @FXML
+    private Label errorLabel2;
+
+    @FXML
+    private Label errorLabel3;
+
+
+    // Regex voor wachtwoordregels
+    private static final String PASSWORD_PATTERN =
+            "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{12,}$";
+
+    private static final Pattern pattern = Pattern.compile(PASSWORD_PATTERN);
+
+    // Methode om wachtwoord te valideren
+    private boolean isPasswordValid(String password) {
+        return password != null && pattern.matcher(password).matches();
+    }
+
+    // Methode voor hashing het wachtwoord
+    public String hashPassword(String password) {
+        return BCrypt.hashpw(password, BCrypt.gensalt());
+    }
+
     @FXML
     public void handleRegisterAction(ActionEvent event) {
         String firstName = firstname.getText();
@@ -55,19 +82,28 @@ public class ControllerRegister {
         String repeatPassword = repeatPasswordField.getText();
 
         if (firstName.isEmpty() || lastName.isEmpty() || userName.isEmpty() || phone.isEmpty() || password.isEmpty() || repeatPassword.isEmpty()) {
-            System.out.println("Please fill all the fields.");
-            return; // Exit if fields are empty
+            errorLabel2.setText("Please fill all the fields");
+            errorLabel3.setText("");
+            errorLabel.setText("");
+            return;
         }
 
-        if (!password.equals(repeatPassword)) {
-            System.out.println("Passwords do not match.");
-            return; // Exit if passwords don't match
+        else if (!password.equals(repeatPassword)) {
+            errorLabel3.setText("Passwords do not match.");
+            errorLabel2.setText("");
+            errorLabel.setText("");
+            return;
+        }
+
+        else if (!isPasswordValid(password)) {
+            errorLabel.setText("Password must be at least 12 characters, include a number, a special symbol, and an uppercase letter.");
+            errorLabel2.setText("");
+            errorLabel3.setText("");
+            return;
         }
 
         registerUser(firstName, lastName, userName, phone, password, event);
     }
-
-
 
     private void registerUser(String firstName, String lastName, String userName, String phone, String password, ActionEvent event) {
         connection = databaseConnection.getConnection();
@@ -129,22 +165,17 @@ public class ControllerRegister {
         }
     }
 
-    //    The function when you already have an account:
     @FXML
-    public void handleLinkAction(MouseEvent event){
+    public void handleLinkAction(MouseEvent event) {
         System.out.println("Link has been clicked.");
         try {
-            // Load the next page (for example, a login page or registration page)
+            // Load the login page
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/LoginPage.fxml"));
             Scene homeScene = new Scene(loader.load());
-
-            // Get the current stage
             Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-
-            // Set the new scene
             stage.setScene(homeScene);
         } catch (Exception e) {
-            e.printStackTrace();  // Handle the exception properly
+            e.printStackTrace();
         }
     }
 }
