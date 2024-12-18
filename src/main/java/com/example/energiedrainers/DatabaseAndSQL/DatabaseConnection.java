@@ -10,7 +10,7 @@ public class DatabaseConnection {
     public Connection getConnection(){
         String databaseName = "energydrainers";
         String databaseUser = "root";
-        String databasePassword = "rootroot";
+        String databasePassword = "";
         String url = "jdbc:mysql://localhost:3306/" + databaseName;
         //String url = "jdbc:mysql://localhost:3306/energydrainers";
 
