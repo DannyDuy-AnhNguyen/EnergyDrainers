@@ -24,10 +24,11 @@ public class ControllerMijGegevens {
         phonenumberText.setText(UserSession.getPhoneNumber());
     }
 
+//    This is the navigation bar. Click on the image to navigate
+
     @FXML
     public void handleHomeButton(MouseEvent event) {
         System.out.println("Home button clicked!");
-        System.out.println("Session data after clearing: " + UserSession.getSession());
         try {
             // Load the new FXML
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/HomeLoggedIn.fxml"));
@@ -43,20 +44,39 @@ public class ControllerMijGegevens {
         }
     }
 
+
+
     @FXML
     public void handleApparaatButton(MouseEvent event) {
-        System.out.println("Apparaat button clicked!");
-        System.out.println("Session data after clearing: " + UserSession.getSession());
+        System.out.println("Apparaat button clicked!\nChecks of the user already has a tracker on his name...");
+
+        int CheckKlantTrackerID = ControllerGetDataTable.getKlantIDViaTracker();
+        System.out.println("CheckKlantTrackerID: "+ CheckKlantTrackerID);
+
+
         try {
-            // Load the new FXML
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/ApparaatVoegNieuweApparaat.fxml"));
-            Scene homeScene = new Scene(loader.load());
+            if(CheckKlantTrackerID == 0){
+                // Load the new FXML
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/ApparaatOmvormerToegevoegd.fxml"));
+                Scene homeScene = new Scene(loader.load());
 
-            // Get the current stage
-            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+                // Get the current stage
+                Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
 
-            // Set the new scene
-            stage.setScene(homeScene);
+                // Set the new scene
+                stage.setScene(homeScene);
+            } else{
+                // Load the new FXML
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/ApparaatVoegNieuweApparaat.fxml"));
+                Scene homeScene = new Scene(loader.load());
+
+                // Get the current stage
+                Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+
+                // Set the new scene
+                stage.setScene(homeScene);
+            }
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -65,17 +85,31 @@ public class ControllerMijGegevens {
     @FXML
     public void handleGegevensButton(MouseEvent event) {
         System.out.println("Gegevens button clicked!");
-        System.out.println("Session data after clearing: " + UserSession.getSession());
+
+        int CheckKlantTrackerID = ControllerGetDataTable.getKlantIDViaTracker();
+        System.out.println("CheckKlantTrackerID: "+ CheckKlantTrackerID);
         try {
-            // Load the new FXML
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/Dashboard.fxml"));
-            Scene homeScene = new Scene(loader.load());
+            if(CheckKlantTrackerID == 0) {
+                // Load the new FXML
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/Dashboard.fxml"));
+                Scene homeScene = new Scene(loader.load());
 
-            // Get the current stage
-            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+                // Get the current stage
+                Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
 
-            // Set the new scene
-            stage.setScene(homeScene);
+                // Set the new scene
+                stage.setScene(homeScene);
+            } else{
+                // Load the new FXML
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/ApparaatVoegNieuweApparaat.fxml"));
+                Scene homeScene = new Scene(loader.load());
+
+                // Get the current stage
+                Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+
+                // Set the new scene
+                stage.setScene(homeScene);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -84,7 +118,6 @@ public class ControllerMijGegevens {
     @FXML
     public void handleMijButton(MouseEvent event) {
         System.out.println("Mij button clicked!");
-        System.out.println("Session data after clearing: " + UserSession.getSession());
         try {
             // Load the new FXML
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/MijGegevens.fxml"));
