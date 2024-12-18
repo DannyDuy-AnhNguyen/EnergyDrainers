@@ -10,9 +10,18 @@ import java.io.IOException;
 
 public class ControllerDashboard {
 
-    //    This is the navigation bar. Click on the image to navigate
+//    Ik heb nu meer een test invoer gemaakt voor de meting.
+    @FXML
+    int meting1 = ControllerGetDataTable.getLDRGemiddeldeMeting(1);
+    int meting2 = ControllerGetDataTable.getLDRGemiddeldeMeting(2);
+    int meting3 = ControllerGetDataTable.getLDRGemiddeldeMeting(3);
+    int meting4 = ControllerGetDataTable.getLDRGemiddeldeMeting(4);
+    int meting5 = ControllerGetDataTable.getLDRGemiddeldeMeting(5);
+    int meting6 = ControllerGetDataTable.getLDRGemiddeldeMeting(6);
+    int meting7 = ControllerGetDataTable.getLDRGemiddeldeMeting(7);
 
-//    This is the navigation bar. Click on the image to navigate
+
+    //    This is the navigation bar. Click on the image to navigate
 
     @FXML
     public void handleHomeButton(MouseEvent event) {
@@ -40,7 +49,6 @@ public class ControllerDashboard {
 
         int CheckKlantTrackerID = ControllerGetDataTable.getKlantIDViaTracker();
         System.out.println("CheckKlantTrackerID: "+ CheckKlantTrackerID);
-
 
         try {
             if(CheckKlantTrackerID == 0){
@@ -70,8 +78,10 @@ public class ControllerDashboard {
         }
     }
 
+
     @FXML
     public void handleGegevensButton(MouseEvent event) {
+
         System.out.println("Gegevens button clicked!");
 
         int CheckKlantTrackerID = ControllerGetDataTable.getKlantIDViaTracker();

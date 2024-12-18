@@ -24,7 +24,7 @@ public class ControllerGetDataTable {
             try (ResultSet queryResult = idStatement.executeQuery()) {
                 if (queryResult.next()) {
                     selectID = queryResult.getInt("TrackerID"); // Correct column name
-                    System.out.println("Retrieved TrackerID: " + selectID);
+//                    System.out.println("Retrieved TrackerID: " + selectID);
                 } else {
                     selectID = -1;
                     System.out.println("No TrackerID found for the given KlantID.");
@@ -148,6 +148,19 @@ public class ControllerGetDataTable {
 
         return ldrOnderLinks;
     }
+
+    //Dag 1
+    public static int getLDRGemiddeldeMeting(int meting){
+        int LDRBovenRechtsDag = ControllerGetDataTable.getLDRBovenRechts(meting);
+        int LDRBovenLinksDag = ControllerGetDataTable.getLDRBovenLinks(meting);
+        int LDROnderRechtsDag = ControllerGetDataTable.getLDROnderRechts(meting);
+        int LDROnderLinksDag = ControllerGetDataTable.getLDROnderLinks(meting);
+        int LDRAverage = (LDRBovenRechtsDag +LDRBovenLinksDag + LDROnderRechtsDag + LDROnderLinksDag) / 4;
+        System.out.println("Meting "+ meting + ": "+ LDRAverage);
+
+        return LDRAverage;
+    }
+
 }
 
 

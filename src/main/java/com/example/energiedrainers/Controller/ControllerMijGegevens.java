@@ -54,6 +54,7 @@ public class ControllerMijGegevens {
         System.out.println("CheckKlantTrackerID: "+ CheckKlantTrackerID);
 
 
+
         try {
             if(CheckKlantTrackerID == 0){
                 // Load the new FXML
