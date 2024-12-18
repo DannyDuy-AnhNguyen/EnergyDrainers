@@ -59,26 +59,6 @@ public class ControllerHomeLoggedIn {
         int CheckKlantTrackerID = ControllerGetDataTable.getKlantIDViaTracker();
         System.out.println("CheckKlantTrackerID: "+ CheckKlantTrackerID);
 
-        int dag1 = 1;
-        int dag2 = 2;
-        int dag3 = 3;
-        int dag4 = 4;
-        int dag5 = 5;
-        int dag6 = 6;
-        int dag7 = 7;
-
-
-        int LDRBovenRechtsDag1 = ControllerGetDataTable.getLDRBovenRechts(dag1);
-        int LDRBovenLinksDag1 = ControllerGetDataTable.getLDRBovenLinks(dag1);
-        int LDROnderRechtsDag1 = ControllerGetDataTable.getLDROnderRechts(dag1);
-        int LDROnderLinksDag1 = ControllerGetDataTable.getLDROnderLinks(dag1);
-
-        int LDRAverage1 = (LDRBovenRechtsDag1 +LDRBovenLinksDag1 + LDROnderRechtsDag1 + LDROnderLinksDag1) / 4;
-
-        System.out.println("Gemiddelde: "+ LDRAverage1);
-
-
-
         try {
             if(CheckKlantTrackerID == 0){
                 // Load the new FXML
