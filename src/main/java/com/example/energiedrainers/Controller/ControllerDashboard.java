@@ -5,20 +5,33 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import java.util.*;
 
 import java.io.IOException;
 
 public class ControllerDashboard {
 
 //    Ik heb nu meer een test invoer gemaakt voor de meting.
+    Calendar c = Calendar.getInstance();
+
+    //        Day must be adjust 7 days in the past with the -1
+    //        SELECT LDR_BovenRechts FROM meting WHERE TrackerID = 0 AND Tijdstip LIKE '2024-12-20%'
+    int day = c.get(Calendar.DAY_OF_MONTH);
+    int month = c.get(Calendar.MONTH) + 1;
+    int year = c.get(Calendar.YEAR);
+
+    String yearMonthDayNow = year + "-" + month + "-" + day;
+
+
+
     @FXML
-    int meting1 = ControllerGetDataTable.getLDRGemiddeldeMeting(1);
-    int meting2 = ControllerGetDataTable.getLDRGemiddeldeMeting(2);
-    int meting3 = ControllerGetDataTable.getLDRGemiddeldeMeting(3);
-    int meting4 = ControllerGetDataTable.getLDRGemiddeldeMeting(4);
-    int meting5 = ControllerGetDataTable.getLDRGemiddeldeMeting(5);
-    int meting6 = ControllerGetDataTable.getLDRGemiddeldeMeting(6);
-    int meting7 = ControllerGetDataTable.getLDRGemiddeldeMeting(7);
+    int meting1 = ControllerGetDataTable.getLDRGemiddeldeMeting(yearMonthDayNow);
+    int meting2 = ControllerGetDataTable.getLDRGemiddeldeMeting(yearMonthDayNow);
+    int meting3 = ControllerGetDataTable.getLDRGemiddeldeMeting(yearMonthDayNow);
+    int meting4 = ControllerGetDataTable.getLDRGemiddeldeMeting(yearMonthDayNow);
+    int meting5 = ControllerGetDataTable.getLDRGemiddeldeMeting(yearMonthDayNow);
+    int meting6 = ControllerGetDataTable.getLDRGemiddeldeMeting(yearMonthDayNow);
+    int meting7 = ControllerGetDataTable.getLDRGemiddeldeMeting(yearMonthDayNow);
 
 
     //    This is the navigation bar. Click on the image to navigate

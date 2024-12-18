@@ -7,6 +7,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.List;
 
 public class ControllerApparaatOmvormerInfo {
 
@@ -40,13 +41,17 @@ public class ControllerApparaatOmvormerInfo {
         int CheckKlantTrackerID = ControllerGetDataTable.getKlantIDViaTracker();
         System.out.println("CheckKlantTrackerID: "+ CheckKlantTrackerID);
 
-        int dag1 = 1;
-        int dag2 = 2;
-        int dag3 = 3;
-        int dag4 = 4;
-        int dag5 = 5;
-        int dag6 = 6;
-        int dag7 = 7;
+
+        //Numbers are date
+        List<String> dates = ControllerGetDataTable.lastSevenDays();
+
+        String dag1 = dates.get(0);
+        String dag2 = dates.get(1);
+        String dag3 = dates.get(2);
+        String dag4 = dates.get(3);
+        String dag5 = dates.get(4);
+        String dag6 = dates.get(5);
+        String dag7 = dates.get(6);
 
         //Dag 1
         int LDRBovenRechtsDag1 = ControllerGetDataTable.getLDRBovenRechts(dag1);

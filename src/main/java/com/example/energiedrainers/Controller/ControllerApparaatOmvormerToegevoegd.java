@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.util.List;
 
 public class ControllerApparaatOmvormerToegevoegd {
     DatabaseConnection databaseConnection = new DatabaseConnection();
@@ -100,13 +101,17 @@ public class ControllerApparaatOmvormerToegevoegd {
         int CheckKlantTrackerID = ControllerGetDataTable.getKlantIDViaTracker();
         System.out.println("CheckKlantTrackerID: "+ CheckKlantTrackerID);
 
-        int dag1 = 1;
-        int dag2 = 2;
-        int dag3 = 3;
-        int dag4 = 4;
-        int dag5 = 5;
-        int dag6 = 6;
-        int dag7 = 7;
+
+        //Numbers are date
+        List<String> dates = ControllerGetDataTable.lastSevenDays();
+
+        String dag1 = "2025-01-08";
+        String dag2 = "2025-01-07";
+        String dag3 = "2025-01-06";
+        String dag4 = "2025-01-05";
+        String dag5 = "2025-01-04";
+        String dag6 = "2025-01-03";
+        String dag7 = "2025-01-02";
 
         //Dag 1
         int LDRBovenRechtsDag1 = ControllerGetDataTable.getLDRBovenRechts(dag1);
