@@ -66,23 +66,16 @@
                         </ImageView>
                      </children>
                   </Group>
-                  <Text fill="WHITE" layoutX="38.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aantal uren zon per dag">
-                     <font>
-                        <Font name="Segoe UI Semibold" size="24.0" />
-                     </font>
-                  </Text>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d9d9d9" height="384.0" layoutX="42.0" layoutY="228.0" stroke="#d9d9d9" strokeLineCap="ROUND" strokeWidth="10.0" width="607.0" />
-                  <Group layoutX="101.0" layoutY="268.0">
-                     <children>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ef7f00" height="85.0" layoutY="183.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="60.0" />
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ef7f00" height="180.0" layoutX="70.0" layoutY="88.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="60.0" />
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ef7f00" height="219.0" layoutX="143.0" layoutY="49.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="60.0" />
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ef7f00" height="130.0" layoutX="215.0" layoutY="138.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="60.0" />
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ef7f00" height="268.0" layoutX="287.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="60.0" />
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ef7f00" height="180.0" layoutX="359.0" layoutY="88.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="60.0" />
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ef7f00" height="141.0" layoutX="430.0" layoutY="127.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="60.0" />
-                     </children>
-                  </Group>
+            <Group layoutX="37.0" layoutY="158.1015625">
+               <children>
+                        <Text fill="WHITE" layoutX="1.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aantal uren zon per dag">
+                           <font>
+                              <Font name="Segoe UI Semibold" size="24.0" />
+                           </font>
+                        </Text>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d9d9d9" height="384.0" layoutY="64.8984375" stroke="#d9d9d9" strokeLineCap="ROUND" strokeWidth="10.0" width="607.0" />
+               </children>
+            </Group>
                   <Group layoutX="49.0" layoutY="260.0">
                      <children>
                         <Text layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 ">
@@ -188,6 +181,18 @@
                         </Text>
                      </children>
                   </Group>
+                  <Group layoutX="101.0" layoutY="268.0">
+                     <children>
+                        <Rectangle fx:id="retangle1" arcHeight="5.0" arcWidth="5.0" fill="#ef7f00" height="10.0" layoutX="1.0" layoutY="233.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="60.0" />
+                        <Rectangle fx:id="retangle2" arcHeight="5.0" arcWidth="5.0" fill="#ef7f00" height="20.0" layoutX="70.0" layoutY="223.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="60.0" />
+                        <Rectangle fx:id="retangle3" arcHeight="5.0" arcWidth="5.0" fill="#ef7f00" height="30.0" layoutX="143.0" layoutY="213.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="60.0" />
+                        <Rectangle fx:id="retangle4" arcHeight="5.0" arcWidth="5.0" fill="#ef7f00" height="40.0" layoutX="215.0" layoutY="203.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="60.0" />
+                        <Rectangle fx:id="retangle5" arcHeight="5.0" arcWidth="5.0" fill="#ef7f00" height="50.0" layoutX="287.0" layoutY="193.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="60.0" />
+                        <Rectangle fx:id="retangle6" arcHeight="5.0" arcWidth="5.0" fill="#ef7f00" height="60.0" layoutX="359.0" layoutY="183.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="60.0" />
+                        <Rectangle fx:id="retangle7" arcHeight="5.0" arcWidth="5.0" fill="#ef7f00" height="70.0" layoutX="430.0" layoutY="173.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="60.0" />
+                     </children>
+                  </Group>
+
                </children>
             </AnchorPane>
          </children>

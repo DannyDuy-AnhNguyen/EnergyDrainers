@@ -27,11 +27,12 @@ public class ControllerGetDataTable {
 
         try (PreparedStatement idStatement = connection.prepareStatement(selectQuery)) {
             idStatement.setInt(1, UserSession.getID());
+            System.out.println(idStatement);
 
             try (ResultSet queryResult = idStatement.executeQuery()) {
                 if (queryResult.next()) {
                     selectID = queryResult.getInt("TrackerID"); // Correct column name
-//                    System.out.println("Retrieved TrackerID: " + selectID);
+                    System.out.println("Retrieved TrackerID: " + selectID);
                 } else {
                     selectID = -1;
                     System.out.println("No TrackerID found for the given KlantID.");
@@ -44,68 +45,70 @@ public class ControllerGetDataTable {
         return selectID;
     }
 
-    public static List<Integer> randomValue(){
-        Random rn = new Random();
-        List<Integer> numList = new ArrayList<>(6);
-
-
-        int number1 = rn.nextInt(10) + 1;
-        int number2 = rn.nextInt(10) + 1;
-        int number3 = rn.nextInt(10) + 1;
-        int number4 = rn.nextInt(10) + 1;
-        int number5 = rn.nextInt(10) + 1;
-        int number6 = rn.nextInt(10) + 1;
-
-        numList.add(number1);
-        numList.add(number2);
-        numList.add(number3);
-        numList.add(number4);
-        numList.add(number5);
-        numList.add(number6);
-        System.out.println(numList);
-
-        return numList;
-    }
-
-//    Insert the data of the date into the table 'meting'
-    public static String insertMetingDate(String date, int userID){
-        DatabaseConnection databaseConnection = new DatabaseConnection();
-        Connection connection = databaseConnection.getConnection();
-
-//        Calendar c = Calendar.getInstance();
+//// Stijn heeft via zijn code al gedaan... Controleer dat even🙂
+//    public static List<Integer> randomValue(){
+//        Random rn = new Random();
+//        List<Integer> numList = new ArrayList<>(6);
 //
-//        int day = c.get(Calendar.DAY_OF_MONTH);
-//        int month = c.get(Calendar.MONTH) + 1; // Month is 0-based
-//        int year = c.get(Calendar.YEAR);
 //
-//        String currentDate = year + "-" + (month < 10 ? "0" + month : month) + "-" + (day < 10 ? "0" + day : day);
+//        int number1 = rn.nextInt(10) + 1;
+//        int number2 = rn.nextInt(10) + 1;
+//        int number3 = rn.nextInt(10) + 1;
+//        int number4 = rn.nextInt(10) + 1;
+//        int number5 = rn.nextInt(10) + 1;
+//        int number6 = rn.nextInt(10) + 1;
+//
+//        numList.add(number1);
+//        numList.add(number2);
+//        numList.add(number3);
+//        numList.add(number4);
+//        numList.add(number5);
+//        numList.add(number6);
+//        System.out.println(numList);
+//
+//        return numList;
+//    }
 
-        List<Integer> randomList = randomValue();
-        int hoekKantelServo = randomList.get(0);
-        int hoekDraaiServo = randomList.get(1);
-        int LDRBovenRechts = randomList.get(2);
-        int LDRBovenLinks = randomList.get(3);
-        int LDROnderRechts = randomList.get(4);
-        int LDROnderLinks = randomList.get(5);
 
-        String insertQuery = "INSERT INTO meting (Tijdstip, HOEK_kantelservo, HOEK_draaiservo, LDR_BovenRechts, LDR_BovenLinks, LDR_OnderRechts, LDR_OnderLinks, TrackerID) VALUES("+date+", "+hoekKantelServo+", "+hoekDraaiServo+", "+LDRBovenRechts+", "+LDRBovenLinks+", "+LDROnderRechts+", "+LDROnderLinks+" "+userID+")";
-
-        try(PreparedStatement insertStatement = connection.prepareStatement(insertQuery)){
-            insertStatement.setInt(1, UserSession.getID());
-
-            int rowsInserted = insertStatement.executeUpdate();
-
-            if(rowsInserted > 0){
-                return "Tracker added successfully!";
-            } else{
-                return "Failure😭.";
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("An error occurred while adding tracker.");
-        }
-        return "Test";
-    }
+//// Insert the data of the date into the table 'meting'
+//    public static String insertMetingDate(String date, int userID){
+//        DatabaseConnection databaseConnection = new DatabaseConnection();
+//        Connection connection = databaseConnection.getConnection();
+//
+////        Calendar c = Calendar.getInstance();
+////
+////        int day = c.get(Calendar.DAY_OF_MONTH);
+////        int month = c.get(Calendar.MONTH) + 1; // Month is 0-based
+////        int year = c.get(Calendar.YEAR);
+////
+////        String currentDate = year + "-" + (month < 10 ? "0" + month : month) + "-" + (day < 10 ? "0" + day : day);
+//
+//        List<Integer> randomList = randomValue();
+//        int hoekKantelServo = randomList.get(0);
+//        int hoekDraaiServo = randomList.get(1);
+//        int LDRBovenRechts = randomList.get(2);
+//        int LDRBovenLinks = randomList.get(3);
+//        int LDROnderRechts = randomList.get(4);
+//        int LDROnderLinks = randomList.get(5);
+//
+//        String insertQuery = "INSERT INTO meting (Tijdstip, HOEK_kantelservo, HOEK_draaiservo, LDR_BovenRechts, LDR_BovenLinks, LDR_OnderRechts, LDR_OnderLinks, TrackerID) VALUES("+date+", "+hoekKantelServo+", "+hoekDraaiServo+", "+LDRBovenRechts+", "+LDRBovenLinks+", "+LDROnderRechts+", "+LDROnderLinks+" "+userID+")";
+//
+//        try(PreparedStatement insertStatement = connection.prepareStatement(insertQuery)){
+//            insertStatement.setInt(1, UserSession.getID());
+//
+//            int rowsInserted = insertStatement.executeUpdate();
+//
+//            if(rowsInserted > 0){
+//                return "Tracker added successfully!";
+//            } else{
+//                return "Failure😭.";
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            System.out.println("An error occurred while adding tracker.");
+//        }
+//        return "Test";
+//    }
 
 //    Get the data of the LDR based on the data of the TrackerID
     public static int getLDRBovenRechts(String datum){
@@ -113,11 +116,11 @@ public class ControllerGetDataTable {
         Connection connection = databaseConnection.getConnection();
 
         int ldrBovenRechts = 0;
-        String selectQuery = "SELECT LDR_BovenRechts FROM meting WHERE TrackerID = ? AND Tijdstip LIKE ?%";
+        String selectQuery = "SELECT LDR_BovenRechts FROM meting WHERE TrackerID = ? AND Tijdstip LIKE ?";
 
         try (PreparedStatement idStatement = connection.prepareStatement(selectQuery)) {
             idStatement.setInt(1, getKlantIDViaTracker());
-//            idStatement.setString(2, meting);
+            idStatement.setString(2, datum + "%");
 
             try (ResultSet queryResult = idStatement.executeQuery()) {
                 if (queryResult.next()) {
@@ -140,11 +143,11 @@ public class ControllerGetDataTable {
         Connection connection = databaseConnection.getConnection();
 
         int ldrBovenLinks = 0;
-        String selectQuery = "SELECT LDR_BovenLinks FROM meting WHERE TrackerID = ? AND Tijdstip LIKE ?%";
+        String selectQuery = "SELECT LDR_BovenLinks FROM meting WHERE TrackerID = ? AND Tijdstip LIKE ?";
 
         try (PreparedStatement idStatement = connection.prepareStatement(selectQuery)) {
             idStatement.setInt(1, getKlantIDViaTracker());
-//            idStatement.setString(2, meting);
+            idStatement.setString(2, datum + "%");
 
             try (ResultSet queryResult = idStatement.executeQuery()) {
                 if (queryResult.next()) {
@@ -168,11 +171,11 @@ public class ControllerGetDataTable {
         Connection connection = databaseConnection.getConnection();
 
         int ldrOnderRechts = 0;
-        String selectQuery = "SELECT LDR_OnderRechts FROM meting WHERE TrackerID = ? AND Tijdstip LIKE ?%";
+        String selectQuery = "SELECT LDR_OnderRechts FROM meting WHERE TrackerID = ? AND Tijdstip LIKE ?";
 
         try (PreparedStatement idStatement = connection.prepareStatement(selectQuery)) {
             idStatement.setInt(1, getKlantIDViaTracker());
-//            idStatement.setString(2, meting);
+            idStatement.setString(2, datum + "%");
 
             try (ResultSet queryResult = idStatement.executeQuery()) {
                 if (queryResult.next()) {
@@ -196,11 +199,11 @@ public class ControllerGetDataTable {
         Connection connection = databaseConnection.getConnection();
 
         int ldrOnderLinks = 0;
-        String selectQuery = "SELECT LDR_OnderLinks FROM meting WHERE TrackerID = ? AND Tijdstip LIKE ?%";
+        String selectQuery = "SELECT LDR_OnderLinks FROM meting WHERE TrackerID = ? AND Tijdstip LIKE ?";
 
         try (PreparedStatement idStatement = connection.prepareStatement(selectQuery)) {
             idStatement.setInt(1, getKlantIDViaTracker());
-//            idStatement.setString(2, meting);
+            idStatement.setString(2, datum + "%");
 
             try (ResultSet queryResult = idStatement.executeQuery()) {
                 if (queryResult.next()) {
@@ -220,12 +223,12 @@ public class ControllerGetDataTable {
     }
 
     //Dag 1
-    public static int getLDRGemiddeldeMeting(String meting){
+    public static int getLDR_Average_Meting(String meting){
         int LDRBovenRechtsDag = ControllerGetDataTable.getLDRBovenRechts(meting);
         int LDRBovenLinksDag = ControllerGetDataTable.getLDRBovenLinks(meting);
         int LDROnderRechtsDag = ControllerGetDataTable.getLDROnderRechts(meting);
         int LDROnderLinksDag = ControllerGetDataTable.getLDROnderLinks(meting);
-        int LDRAverage = (LDRBovenRechtsDag +LDRBovenLinksDag + LDROnderRechtsDag + LDROnderLinksDag) / 4;
+        int LDRAverage = ((LDRBovenRechtsDag +LDRBovenLinksDag + LDROnderRechtsDag + LDROnderLinksDag) / 4) * 10;
         System.out.println("Meting "+ meting + ": "+ LDRAverage);
 
         return LDRAverage;

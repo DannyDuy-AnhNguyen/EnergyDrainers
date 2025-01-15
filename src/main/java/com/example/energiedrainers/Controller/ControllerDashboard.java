@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import java.util.*;
 
@@ -11,30 +12,28 @@ import java.io.IOException;
 
 public class ControllerDashboard {
 
-//    Ik heb nu meer een test invoer gemaakt voor de meting.
-    Calendar c = Calendar.getInstance();
-
-    //        Day must be adjust 7 days in the past with the -1
-    //        SELECT LDR_BovenRechts FROM meting WHERE TrackerID = 0 AND Tijdstip LIKE '2024-12-20%'
-    int day = c.get(Calendar.DAY_OF_MONTH);
-    int month = c.get(Calendar.MONTH) + 1;
-    int year = c.get(Calendar.YEAR);
-
-    String yearMonthDayNow = year + "-" + month + "-" + day;
-
-
+    //    This is the navigation bar. Click on the image to navigate
+    //For the rectangle adjustments:
+    @FXML
+    private Rectangle rectangle1;
 
     @FXML
-    int meting1 = ControllerGetDataTable.getLDRGemiddeldeMeting(yearMonthDayNow);
-    int meting2 = ControllerGetDataTable.getLDRGemiddeldeMeting(yearMonthDayNow);
-    int meting3 = ControllerGetDataTable.getLDRGemiddeldeMeting(yearMonthDayNow);
-    int meting4 = ControllerGetDataTable.getLDRGemiddeldeMeting(yearMonthDayNow);
-    int meting5 = ControllerGetDataTable.getLDRGemiddeldeMeting(yearMonthDayNow);
-    int meting6 = ControllerGetDataTable.getLDRGemiddeldeMeting(yearMonthDayNow);
-    int meting7 = ControllerGetDataTable.getLDRGemiddeldeMeting(yearMonthDayNow);
+    private Rectangle rectangle2;
 
+    @FXML
+    private Rectangle rectangle3;
 
-    //    This is the navigation bar. Click on the image to navigate
+    @FXML
+    private Rectangle rectangle4;
+
+    @FXML
+    private Rectangle rectangle5;
+
+    @FXML
+    private Rectangle rectangle6;
+
+    @FXML
+    private Rectangle rectangle7;
 
     @FXML
     public void handleHomeButton(MouseEvent event) {
@@ -64,7 +63,7 @@ public class ControllerDashboard {
         System.out.println("CheckKlantTrackerID: "+ CheckKlantTrackerID);
 
         try {
-            if(CheckKlantTrackerID == 0){
+            if(CheckKlantTrackerID > 0){
                 // Load the new FXML
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/ApparaatOmvormerToegevoegd.fxml"));
                 Scene homeScene = new Scene(loader.load());
@@ -94,13 +93,37 @@ public class ControllerDashboard {
 
     @FXML
     public void handleGegevensButton(MouseEvent event) {
-
         System.out.println("Gegevens button clicked!");
 
         int CheckKlantTrackerID = ControllerGetDataTable.getKlantIDViaTracker();
-        System.out.println("CheckKlantTrackerID: "+ CheckKlantTrackerID);
+        System.out.println("CheckKlantTrackerID: " + CheckKlantTrackerID);
         try {
-            if(CheckKlantTrackerID == 0) {
+            if (CheckKlantTrackerID > 0) {
+                List<String> dates = ControllerGetDataTable.lastSevenDays();
+
+                int[] LDRValues = {
+                        ControllerGetDataTable.getLDR_Average_Meting(dates.get(0)),
+                        ControllerGetDataTable.getLDR_Average_Meting(dates.get(1)),
+                        ControllerGetDataTable.getLDR_Average_Meting(dates.get(2)),
+                        ControllerGetDataTable.getLDR_Average_Meting(dates.get(3)),
+                        ControllerGetDataTable.getLDR_Average_Meting(dates.get(4)),
+                        ControllerGetDataTable.getLDR_Average_Meting(dates.get(5)),
+                        ControllerGetDataTable.getLDR_Average_Meting(dates.get(6))
+                };
+
+                // Fixed layoutY position of the bottom of the rectangles
+                double fixedBottomY = 243.0;
+
+                // Adjust the rectangles dynamically
+                Rectangle[] rectangles = {
+                        rectangle1, rectangle2, rectangle3, rectangle4, rectangle5, rectangle6, rectangle7
+                };
+
+                for (int i = 0; i < rectangles.length; i++) {
+                    rectangles[i].setHeight(LDRValues[i]);
+                    rectangles[i].setLayoutY(fixedBottomY - LDRValues[i]);
+                }
+
                 // Load the new FXML
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/Dashboard.fxml"));
                 Scene homeScene = new Scene(loader.load());
@@ -110,8 +133,8 @@ public class ControllerDashboard {
 
                 // Set the new scene
                 stage.setScene(homeScene);
-            } else{
-                // Load the new FXML
+            } else {
+                // Load the fallback FXML
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/ApparaatVoegNieuweApparaat.fxml"));
                 Scene homeScene = new Scene(loader.load());
 
@@ -125,6 +148,7 @@ public class ControllerDashboard {
             e.printStackTrace();
         }
     }
+
 
     @FXML
     public void handleMijButton(MouseEvent event) {

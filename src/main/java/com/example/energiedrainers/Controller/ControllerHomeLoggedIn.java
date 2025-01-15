@@ -6,8 +6,10 @@ import com.example.energiedrainers.Session.UserSession;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import java.util.Arrays;
 
 import javafx.scene.input.MouseEvent;
 import java.io.IOException;
@@ -23,6 +25,29 @@ public class ControllerHomeLoggedIn {
 
     @FXML
     private Text usernameText;
+
+//For the rectangle adjustments:
+    @FXML
+    private Rectangle rectangle1;
+
+    @FXML
+    private Rectangle rectangle2;
+
+    @FXML
+    private Rectangle rectangle3;
+
+    @FXML
+    private Rectangle rectangle4;
+
+    @FXML
+    private Rectangle rectangle5;
+
+    @FXML
+    private Rectangle rectangle6;
+
+    @FXML
+    private Rectangle rectangle7;
+
 
     // This will be called after the FXML has been loaded and initialized
     public void initialize() {
@@ -61,73 +86,10 @@ public class ControllerHomeLoggedIn {
         int CheckKlantTrackerID = ControllerGetDataTable.getKlantIDViaTracker();
         System.out.println("CheckKlantTrackerID: "+ CheckKlantTrackerID);
 
-        //Numbers are date
-        List<String> dates = ControllerGetDataTable.lastSevenDays();
-        int userID = UserSession.getID();
-
-        String dag1 = dates.get(0);
-        String dag2 = dates.get(1);
-        String dag3 = dates.get(2);
-        String dag4 = dates.get(3);
-        String dag5 = dates.get(4);
-        String dag6 = dates.get(5);
-        String dag7 = dates.get(6);
-
-        //Dag 1
-        int LDRBovenRechtsDag1 = ControllerGetDataTable.getLDRBovenRechts(dag1);
-        int LDRBovenLinksDag1 = ControllerGetDataTable.getLDRBovenLinks(dag1);
-        int LDROnderRechtsDag1 = ControllerGetDataTable.getLDROnderRechts(dag1);
-        int LDROnderLinksDag1 = ControllerGetDataTable.getLDROnderLinks(dag1);
-        int LDRAverage1 = (LDRBovenRechtsDag1 +LDRBovenLinksDag1 + LDROnderRechtsDag1 + LDROnderLinksDag1) / 4;
-
-        //Dag 2
-        int LDRBovenRechtsDag2 = ControllerGetDataTable.getLDRBovenRechts(dag2);
-        int LDRBovenLinksDag2 = ControllerGetDataTable.getLDRBovenLinks(dag2);
-        int LDROnderRechtsDag2 = ControllerGetDataTable.getLDROnderRechts(dag2);
-        int LDROnderLinksDag2 = ControllerGetDataTable.getLDROnderLinks(dag2);
-        int LDRAverage2 = (LDRBovenRechtsDag2 +LDRBovenLinksDag2 + LDROnderRechtsDag2 + LDROnderLinksDag2) / 4;
-
-        //Dag 3
-        int LDRBovenRechtsDag3 = ControllerGetDataTable.getLDRBovenRechts(dag3);
-        int LDRBovenLinksDag3 = ControllerGetDataTable.getLDRBovenLinks(dag3);
-        int LDROnderRechtsDag3 = ControllerGetDataTable.getLDROnderRechts(dag3);
-        int LDROnderLinksDag3 = ControllerGetDataTable.getLDROnderLinks(dag3);
-        int LDRAverage3 = (LDRBovenRechtsDag3 +LDRBovenLinksDag3 + LDROnderRechtsDag3 + LDROnderLinksDag3) / 4;
-
-        //Dag 4
-        int LDRBovenRechtsDag4 = ControllerGetDataTable.getLDRBovenRechts(dag4);
-        int LDRBovenLinksDag4 = ControllerGetDataTable.getLDRBovenLinks(dag4);
-        int LDROnderRechtsDag4 = ControllerGetDataTable.getLDROnderRechts(dag4);
-        int LDROnderLinksDag4 = ControllerGetDataTable.getLDROnderLinks(dag4);
-        int LDRAverage4 = (LDRBovenRechtsDag4 +LDRBovenLinksDag4 + LDROnderRechtsDag4 + LDROnderLinksDag4) / 4;
-
-        //Dag 5
-        int LDRBovenRechtsDag5 = ControllerGetDataTable.getLDRBovenRechts(dag5);
-        int LDRBovenLinksDag5 = ControllerGetDataTable.getLDRBovenLinks(dag5);
-        int LDROnderRechtsDag5 = ControllerGetDataTable.getLDROnderRechts(dag5);
-        int LDROnderLinksDag5 = ControllerGetDataTable.getLDROnderLinks(dag5);
-        int LDRAverage5 = (LDRBovenRechtsDag5 +LDRBovenLinksDag5 + LDROnderRechtsDag5 + LDROnderLinksDag5) / 4;
-
-        //Dag 6
-        int LDRBovenRechtsDag6 = ControllerGetDataTable.getLDRBovenRechts(dag6);
-        int LDRBovenLinksDag6 = ControllerGetDataTable.getLDRBovenLinks(dag6);
-        int LDROnderRechtsDag6 = ControllerGetDataTable.getLDROnderRechts(dag6);
-        int LDROnderLinksDag6 = ControllerGetDataTable.getLDROnderLinks(dag6);
-        int LDRAverage6 = (LDRBovenRechtsDag6 +LDRBovenLinksDag6 + LDROnderRechtsDag6 + LDROnderLinksDag6) / 4;
-
-        //Dag 7
-        int LDRBovenRechtsDag7 = ControllerGetDataTable.getLDRBovenRechts(dag7);
-        int LDRBovenLinksDag7 = ControllerGetDataTable.getLDRBovenLinks(dag7);
-        int LDROnderRechtsDag7 = ControllerGetDataTable.getLDROnderRechts(dag7);
-        int LDROnderLinksDag7 = ControllerGetDataTable.getLDROnderLinks(dag7);
-        int LDRAverage7 = (LDRBovenRechtsDag7 +LDRBovenLinksDag7 + LDROnderRechtsDag7 + LDROnderLinksDag7) / 4;
-
-        System.out.println("Gemiddelde: "+ LDRAverage1);
-
         try {
-            if(CheckKlantTrackerID == 0){
-                String insertTest = ControllerGetDataTable.insertMetingDate(dag1, userID);
-                System.out.println(insertTest);
+            if(CheckKlantTrackerID > 0){
+//                String insertTest = ControllerGetDataTable.insertMetingDate(dag1, userID);
+//                System.out.println(insertTest);
 
                 // Load the new FXML
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/ApparaatOmvormerToegevoegd.fxml"));
@@ -155,14 +117,45 @@ public class ControllerHomeLoggedIn {
         }
     }
 
+
     @FXML
     public void handleGegevensButton(MouseEvent event) {
         System.out.println("Gegevens button clicked!");
 
         int CheckKlantTrackerID = ControllerGetDataTable.getKlantIDViaTracker();
-        System.out.println("CheckKlantTrackerID: "+ CheckKlantTrackerID);
+        System.out.println("CheckKlantTrackerID: " + CheckKlantTrackerID);
         try {
-            if(CheckKlantTrackerID == 0) {
+            if (CheckKlantTrackerID > 0) {
+                List<String> dates = ControllerGetDataTable.lastSevenDays();
+
+                int[] LDRValues = {
+                        ControllerGetDataTable.getLDR_Average_Meting(dates.get(0)),
+                        ControllerGetDataTable.getLDR_Average_Meting(dates.get(1)),
+                        ControllerGetDataTable.getLDR_Average_Meting(dates.get(2)),
+                        ControllerGetDataTable.getLDR_Average_Meting(dates.get(3)),
+                        ControllerGetDataTable.getLDR_Average_Meting(dates.get(4)),
+                        ControllerGetDataTable.getLDR_Average_Meting(dates.get(5)),
+                        ControllerGetDataTable.getLDR_Average_Meting(dates.get(6))
+                };
+
+                // Fixed layoutY position of the bottom of the rectangles
+                double fixedBottomY = 243.0;
+
+                // Adjust the rectangles dynamically
+                Rectangle[] rectangles = {
+                        rectangle1, rectangle2, rectangle3, rectangle4, rectangle5, rectangle6, rectangle7
+                };
+
+                // Print each rectangle
+                for (int i = 0; i < rectangles.length; i++) {
+                    if (rectangles[i] != null) {
+                        rectangles[i].setHeight(LDRValues[i]);
+                        rectangles[i].setLayoutY(fixedBottomY - LDRValues[i]);
+                    } else {
+                        System.out.println("Error: Rectangle object is null at index " + i);
+                    }
+                }
+
                 // Load the new FXML
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/Dashboard.fxml"));
                 Scene homeScene = new Scene(loader.load());
@@ -172,8 +165,8 @@ public class ControllerHomeLoggedIn {
 
                 // Set the new scene
                 stage.setScene(homeScene);
-            } else{
-                // Load the new FXML
+            } else {
+                // Load the fallback FXML
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/ApparaatVoegNieuweApparaat.fxml"));
                 Scene homeScene = new Scene(loader.load());
 
@@ -187,6 +180,9 @@ public class ControllerHomeLoggedIn {
             e.printStackTrace();
         }
     }
+
+
+
 
     @FXML
     public void handleMijButton(MouseEvent event) {

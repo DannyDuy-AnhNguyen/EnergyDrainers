@@ -147,7 +147,7 @@ public class ControllerApparaatVoegNieuweApparaat {
         System.out.println("Gemiddelde: "+ LDRAverage1);
 
         try {
-            if(CheckKlantTrackerID == 0){
+            if(CheckKlantTrackerID > 0){
                 // Load the new FXML
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/ApparaatOmvormerToegevoegd.fxml"));
                 Scene homeScene = new Scene(loader.load());
@@ -182,8 +182,50 @@ public class ControllerApparaatVoegNieuweApparaat {
         int CheckKlantTrackerID = ControllerGetDataTable.getKlantIDViaTracker();
         System.out.println("CheckKlantTrackerID: "+ CheckKlantTrackerID);
         try {
-            if(CheckKlantTrackerID == 0) {
-                // Load the new FXML
+//            If the tracker does exist🙂
+            if(CheckKlantTrackerID > 0) {
+                //Numbers are date
+                List<String> dates = ControllerGetDataTable.lastSevenDays();
+
+                String dag1 = dates.get(0);
+                String dag2 = dates.get(1);
+                String dag3 = dates.get(2);
+                String dag4 = dates.get(3);
+                String dag5 = dates.get(4);
+                String dag6 = dates.get(5);
+                String dag7 = dates.get(6);
+
+                //Dag 1
+                int LDRAverage1 = ControllerGetDataTable.getLDR_Average_Meting(dag1);
+
+                //Dag 2
+                int LDRAverage2 = ControllerGetDataTable.getLDR_Average_Meting(dag2);
+
+                //Dag 3
+                int LDRAverage3 = ControllerGetDataTable.getLDR_Average_Meting(dag3);
+
+                //Dag 4
+                int LDRAverage4 = ControllerGetDataTable.getLDR_Average_Meting(dag4);
+
+                //Dag 5
+                int LDRAverage5 = ControllerGetDataTable.getLDR_Average_Meting(dag5);
+
+                //Dag 6
+                int LDRAverage6 = ControllerGetDataTable.getLDR_Average_Meting(dag6);
+
+                //Dag 7
+                int LDRAverage7 = ControllerGetDataTable.getLDR_Average_Meting(dag7);
+
+                System.out.println("Gemiddelde 1: "+ LDRAverage1);
+                System.out.println("Gemiddelde 2: "+ LDRAverage2);
+                System.out.println("Gemiddelde 3: "+ LDRAverage3);
+                System.out.println("Gemiddelde 4: "+ LDRAverage4);
+                System.out.println("Gemiddelde 5: "+ LDRAverage5);
+                System.out.println("Gemiddelde 6: "+ LDRAverage6);
+                System.out.println("Gemiddelde 7: "+ LDRAverage7);
+
+
+                // Load the new FXML😱
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/Dashboard.fxml"));
                 Scene homeScene = new Scene(loader.load());
 
@@ -207,6 +249,7 @@ public class ControllerApparaatVoegNieuweApparaat {
             e.printStackTrace();
         }
     }
+
 
     @FXML
     public void handleMijButton(MouseEvent event) {
