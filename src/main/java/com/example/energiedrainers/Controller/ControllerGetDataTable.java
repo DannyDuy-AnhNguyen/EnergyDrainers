@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -18,30 +19,51 @@ import java.util.Random;
 public class ControllerGetDataTable {
 
     //    Add the number tracker
+    // Method to get the TrackerID associated with the KlantID
     public static int getKlantIDViaTracker() {
         DatabaseConnection databaseConnection = new DatabaseConnection();
-        Connection connection = databaseConnection.getConnection();
+        Connection connection = null;
+        PreparedStatement idStatement = null;
+        ResultSet queryResult = null;
 
-        int selectID = 0; // Default value if no tracker is found
+        int selectID = -1; // Default value if no tracker is found
+
         String selectQuery = "SELECT TrackerID FROM tracker WHERE KlantID = ?";
 
-        try (PreparedStatement idStatement = connection.prepareStatement(selectQuery)) {
-            idStatement.setInt(1, UserSession.getID());
-            System.out.println(idStatement);
+        try {
+            connection = databaseConnection.getConnection();
+            idStatement = connection.prepareStatement(selectQuery);
+            idStatement.setInt(1, UserSession.getID()); // Assuming UserSession.getID() retrieves the current user's ID
 
-            try (ResultSet queryResult = idStatement.executeQuery()) {
-                if (queryResult.next()) {
-                    selectID = queryResult.getInt("TrackerID"); // Correct column name
-                    System.out.println("Retrieved TrackerID: " + selectID);
-                } else {
-                    selectID = -1;
-                    System.out.println("No TrackerID found for the given KlantID.");
-                }
+            System.out.println("Executing query: " + idStatement);
+            queryResult = idStatement.executeQuery();
+
+            if (queryResult.next()) {
+                selectID = queryResult.getInt("TrackerID"); // Correct column name
+                System.out.println("Retrieved TrackerID: " + selectID);
+            } else {
+                System.out.println("No TrackerID found for the given KlantID.");
             }
-        } catch (Exception e) {
-            System.err.println("Error while retrieving TrackerID: " + e.getMessage());
+
+        } catch (SQLException e) {
+            System.err.println("SQL error while retrieving TrackerID: " + e.getMessage());
             e.printStackTrace();
+        } catch (Exception e) {
+            System.err.println("Unexpected error while retrieving TrackerID: " + e.getMessage());
+            e.printStackTrace();
+        } finally {
+            // Close resources in the finally block
+            try {
+                if (queryResult != null) queryResult.close();
+                if (idStatement != null) idStatement.close();
+                if (connection != null) connection.close();
+            } catch (SQLException e) {
+                System.err.println("Error while closing resources: " + e.getMessage());
+                e.printStackTrace();
+            }
         }
+        System.out.println("Done😉");
+
         return selectID;
     }
 
@@ -229,7 +251,7 @@ public class ControllerGetDataTable {
         int LDROnderRechtsDag = ControllerGetDataTable.getLDROnderRechts(meting);
         int LDROnderLinksDag = ControllerGetDataTable.getLDROnderLinks(meting);
         int LDRAverage = ((LDRBovenRechtsDag +LDRBovenLinksDag + LDROnderRechtsDag + LDROnderLinksDag) / 4) * 10;
-        System.out.println("Meting "+ meting + ": "+ LDRAverage);
+        // System.out.println("Meting "+ meting + ": "+ LDRAverage);
 
         return LDRAverage;
     }

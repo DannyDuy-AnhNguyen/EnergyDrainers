@@ -183,13 +183,13 @@
                   </Group>
                   <Group layoutX="101.0" layoutY="268.0">
                      <children>
-                        <Rectangle fx:id="retangle1" arcHeight="5.0" arcWidth="5.0" fill="#ef7f00" height="10.0" layoutX="1.0" layoutY="233.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="60.0" />
-                        <Rectangle fx:id="retangle2" arcHeight="5.0" arcWidth="5.0" fill="#ef7f00" height="20.0" layoutX="70.0" layoutY="223.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="60.0" />
-                        <Rectangle fx:id="retangle3" arcHeight="5.0" arcWidth="5.0" fill="#ef7f00" height="30.0" layoutX="143.0" layoutY="213.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="60.0" />
-                        <Rectangle fx:id="retangle4" arcHeight="5.0" arcWidth="5.0" fill="#ef7f00" height="40.0" layoutX="215.0" layoutY="203.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="60.0" />
-                        <Rectangle fx:id="retangle5" arcHeight="5.0" arcWidth="5.0" fill="#ef7f00" height="50.0" layoutX="287.0" layoutY="193.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="60.0" />
-                        <Rectangle fx:id="retangle6" arcHeight="5.0" arcWidth="5.0" fill="#ef7f00" height="60.0" layoutX="359.0" layoutY="183.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="60.0" />
-                        <Rectangle fx:id="retangle7" arcHeight="5.0" arcWidth="5.0" fill="#ef7f00" height="70.0" layoutX="430.0" layoutY="173.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="60.0" />
+                        <Rectangle fx:id="rectangle1" arcHeight="5.0" arcWidth="5.0" fill="#ef7f00" layoutX="1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="60.0" />
+                        <Rectangle fx:id="rectangle2" arcHeight="5.0" arcWidth="5.0" fill="#ef7f00" layoutX="70.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="60.0" />
+                        <Rectangle fx:id="rectangle3" arcHeight="5.0" arcWidth="5.0" fill="#ef7f00" layoutX="143.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="60.0" />
+                        <Rectangle fx:id="rectangle4" arcHeight="5.0" arcWidth="5.0" fill="#ef7f00" layoutX="215.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="60.0" />
+                        <Rectangle fx:id="rectangle5" arcHeight="5.0" arcWidth="5.0" fill="#ef7f00" layoutX="287.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="60.0" />
+                        <Rectangle fx:id="rectangle6" arcHeight="5.0" arcWidth="5.0" fill="#ef7f00" layoutX="359.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="60.0" />
+                        <Rectangle fx:id="rectangle7" arcHeight="5.0" arcWidth="5.0" fill="#ef7f00" layoutX="430.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="60.0" />
                      </children>
                   </Group>
 
