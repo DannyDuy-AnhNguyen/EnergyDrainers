@@ -9,33 +9,32 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="845.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.example.energiedrainers.Controller.ControllerApparaatVoegNieuweApparaat">
+<VBox prefHeight="845.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.energiedrainers.Controller.ControllerApparaatVoegNieuweApparaat">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefWidth="700.0" VBox.vgrow="ALWAYS">
          <children>
             <!--            Start of the Navbar-->
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6d6d6d" height="747.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="700.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffb200" height="747.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="700.0" />
             <Group layoutX="9.0" layoutY="736.0">
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d9d9d9" height="141.0" stroke="#d9d9d9" strokeLineCap="ROUND" strokeMiterLimit="20.0" strokeType="OUTSIDE" strokeWidth="10.0" style="-fx-background-radius: 10;" width="680.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#909090" height="141.0" layoutX="168.0" stroke="#d9d9d9" strokeLineCap="ROUND" strokeMiterLimit="20.0" strokeType="OUTSIDE" strokeWidth="10.0" style="-fx-background-radius: 10;" width="124.0" />
-                  <Text layoutX="583.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mij">
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eb5b00" height="141.0" stroke="#eb5b00" strokeLineCap="ROUND" strokeMiterLimit="20.0" strokeType="OUTSIDE" strokeWidth="10.0" style="-fx-background-radius: 10;" width="680.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d91656" height="141.0" layoutX="168.0" stroke="#eb5b00" strokeLineCap="ROUND" strokeMiterLimit="20.0" strokeType="OUTSIDE" strokeWidth="10.0" style="-fx-background-radius: 10;" width="124.0" />
+                  <Text fill="#640d5f" layoutX="583.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mij">
                      <font>
                         <Font name="Segoe UI Semibold" size="24.0" />
                      </font>
                   </Text>
-                  <Text layoutX="33.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home">
+                  <Text fill="#640d5f" layoutX="33.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home">
                      <font>
                         <Font name="Segoe UI Semibold" size="24.0" />
                      </font>
                   </Text>
-                  <Text fill="#d68f0b" layoutX="182.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Apparaat">
+                  <Text fill="#ffb200" layoutX="182.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Apparaat">
                      <font>
                         <Font name="Segoe UI Semibold" size="24.0" />
                      </font>
                   </Text>
-                  <Text layoutX="381.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gegevens">
+                  <Text fill="#640d5f" layoutX="381.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gegevens">
                      <font>
                         <Font name="Segoe UI Semibold" size="24.0" />
                      </font>
@@ -63,17 +62,17 @@
                </children>
             </Group>
             <!--            End of the navbar-->
-            <Text fill="#ffe372" layoutX="62.0" layoutY="385.0" strokeType="OUTSIDE" strokeWidth="0.0" text="U heeft nog geen apparaat toegevoegd!">
+            <Text fill="#640d5f" layoutX="62.0" layoutY="385.0" strokeType="OUTSIDE" strokeWidth="0.0" text="U heeft nog geen apparaat toegevoegd!">
                <font>
                   <Font name="Segoe UI Semibold" size="30.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="167.0" layoutY="458.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Voeg een nieuwe apparaat" onMouseClicked="#handleAddDevice">
+            <Text fill="#7417bf" layoutX="167.0" layoutY="458.0" onMouseClicked="#handleAddDevice" strokeType="OUTSIDE" strokeWidth="0.0" text="Voeg een nieuwe apparaat">
                <font>
                   <Font name="Segoe UI Semibold" size="24.0" />
                </font>
             </Text>
-            <ImageView fitHeight="45.0" fitWidth="54.0" layoutX="466.0" layoutY="427.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#handleAddDevice">
+            <ImageView fitHeight="45.0" fitWidth="54.0" layoutX="466.0" layoutY="427.0" onMouseClicked="#handleAddDevice" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img/addButton.png" />
                </image>

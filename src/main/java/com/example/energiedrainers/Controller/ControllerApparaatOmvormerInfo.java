@@ -12,30 +12,6 @@ import java.util.List;
 
 public class ControllerApparaatOmvormerInfo {
 
-
-//    This is the navigation bar. Click on the image to navigate
-    @FXML
-    private Rectangle rectangle1;
-
-    @FXML
-    private Rectangle rectangle2;
-
-    @FXML
-    private Rectangle rectangle3;
-
-    @FXML
-    private Rectangle rectangle4;
-
-    @FXML
-    private Rectangle rectangle5;
-
-    @FXML
-    private Rectangle rectangle6;
-
-    @FXML
-    private Rectangle rectangle7;
-
-
     @FXML
     public void handleHomeButton(MouseEvent event) {
         System.out.println("Home button clicked!");
@@ -62,19 +38,6 @@ public class ControllerApparaatOmvormerInfo {
 
         int CheckKlantTrackerID = ControllerGetDataTable.getKlantIDViaTracker();
         System.out.println("CheckKlantTrackerID: "+ CheckKlantTrackerID);
-
-
-        //Numbers are date
-        List<String> dates = ControllerGetDataTable.lastSevenDays();
-
-        String dag1 = dates.get(0);
-        String dag2 = dates.get(1);
-        String dag3 = dates.get(2);
-        String dag4 = dates.get(3);
-        String dag5 = dates.get(4);
-        String dag6 = dates.get(5);
-        String dag7 = dates.get(6);
-
 
         try {
             if(CheckKlantTrackerID > 0){
@@ -110,40 +73,12 @@ public class ControllerApparaatOmvormerInfo {
         System.out.println("Gegevens button clicked!");
 
         int CheckKlantTrackerID = ControllerGetDataTable.getKlantIDViaTracker();
-        System.out.println("CheckKlantTrackerID: " + CheckKlantTrackerID);
+        System.out.println("CheckKlantTrackerID: "+ CheckKlantTrackerID);
         try {
-            if (CheckKlantTrackerID > 0) {
-                List<String> dates = ControllerGetDataTable.lastSevenDays();
+//            If the tracker does exist🙂
+            if(CheckKlantTrackerID > 0) {
 
-                int[] LDRValues = {
-                        ControllerGetDataTable.getLDR_Average_Meting(dates.get(0)),
-                        ControllerGetDataTable.getLDR_Average_Meting(dates.get(1)),
-                        ControllerGetDataTable.getLDR_Average_Meting(dates.get(2)),
-                        ControllerGetDataTable.getLDR_Average_Meting(dates.get(3)),
-                        ControllerGetDataTable.getLDR_Average_Meting(dates.get(4)),
-                        ControllerGetDataTable.getLDR_Average_Meting(dates.get(5)),
-                        ControllerGetDataTable.getLDR_Average_Meting(dates.get(6))
-                };
-
-                // Fixed layoutY position of the bottom of the rectangles
-                double fixedBottomY = 243.0;
-
-                // Adjust the rectangles dynamically
-                Rectangle[] rectangles = {
-                        rectangle1, rectangle2, rectangle3, rectangle4, rectangle5, rectangle6, rectangle7
-                };
-
-                // Print each rectangle
-                for (int i = 0; i < rectangles.length; i++) {
-                    if (rectangles[i] != null) {
-                        rectangles[i].setHeight(LDRValues[i]);
-                        rectangles[i].setLayoutY(fixedBottomY - LDRValues[i]);
-                    } else {
-                        System.out.println("Error: Rectangle object is null at index " + i);
-                    }
-                }
-
-                // Load the new FXML
+                // Load the new FXML😱
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/Dashboard.fxml"));
                 Scene homeScene = new Scene(loader.load());
 
@@ -152,8 +87,8 @@ public class ControllerApparaatOmvormerInfo {
 
                 // Set the new scene
                 stage.setScene(homeScene);
-            } else {
-                // Load the fallback FXML
+            } else{
+                // Load the new FXML
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/ApparaatVoegNieuweApparaat.fxml"));
                 Scene homeScene = new Scene(loader.load());
 

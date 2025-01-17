@@ -17,13 +17,7 @@ public class ControllerHomeNotLoggedIn {
     private Button createAccountButton;
 
     @FXML
-    private Button loginButton; // Correct type: Button
-
-    @FXML
     private Text welcomeText;
-
-    @FXML
-    private Label statusLabel; // New label for feedback messages
 
     @FXML
     private Label statusLabelTwo; // New label for feedback messages

@@ -3,7 +3,6 @@ package com.example.energiedrainers.Controller;
 import com.example.energiedrainers.Controller.ControllerGetDataTable;
 import com.example.energiedrainers.DatabaseAndSQL.DatabaseConnection;
 import com.example.energiedrainers.Session.UserSession;
-import com.example.energiedrainers.Controller.ControllerDashboard;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -15,6 +14,7 @@ import javafx.stage.Stage;
 import javafx.scene.input.MouseEvent;
 import java.io.IOException;
 import java.sql.Connection;
+import java.util.List;
 
 public class ControllerHomeLoggedIn {
 
@@ -26,11 +26,29 @@ public class ControllerHomeLoggedIn {
     @FXML
     private Text usernameText;
 
+    @FXML
+    private Text ldr_average;
+
 
     // This will be called after the FXML has been loaded and initialized
     public void initialize() {
         // Set the username text to display the current user's username from the session
         usernameText.setText("Welkom " + UserSession.getUsername());
+        ldr_average.setText("Aantal energie: "+ getLDRText());
+    }
+
+    public static int getLDRText(){
+        List<String> dates = ControllerGetDataTable.lastSevenDays();
+        String dag1 = dates.get(0);
+
+        //Dag 1
+        int LDRBovenRechtsDag1 = ControllerGetDataTable.getLDRBovenRechts(dag1);
+        int LDRBovenLinksDag1 = ControllerGetDataTable.getLDRBovenLinks(dag1);
+        int LDROnderRechtsDag1 = ControllerGetDataTable.getLDROnderRechts(dag1);
+        int LDROnderLinksDag1 = ControllerGetDataTable.getLDROnderLinks(dag1);
+        int LDRAverage1 = (LDRBovenRechtsDag1 + LDRBovenLinksDag1 + LDROnderRechtsDag1 + LDROnderLinksDag1) / 4;
+
+        return LDRAverage1;
     }
 
 

@@ -15,27 +15,27 @@
       <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefWidth="700.0" VBox.vgrow="ALWAYS">
          <children>
             <!--            Start of the navbar-->
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6d6d6d" height="747.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="700.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffb200" height="747.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="700.0" />
             <Group layoutX="9.0" layoutY="736.0">
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d9d9d9" height="141.0" stroke="#d9d9d9" strokeLineCap="ROUND" strokeMiterLimit="20.0" strokeType="OUTSIDE" strokeWidth="10.0" style="-fx-background-radius: 10;" width="680.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#909090" height="141.0" layoutX="539.0" stroke="#d9d9d9" strokeLineCap="ROUND" strokeMiterLimit="20.0" strokeType="OUTSIDE" strokeWidth="10.0" style="-fx-background-radius: 10;" width="124.0" />
-                  <Text fill="#d68f0b" layoutX="583.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mij">
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eb5b00" height="141.0" stroke="#eb5b00" strokeLineCap="ROUND" strokeMiterLimit="20.0" strokeType="OUTSIDE" strokeWidth="10.0" style="-fx-background-radius: 10;" width="680.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d91656" height="141.0" layoutX="539.0" stroke="#eb5b00" strokeLineCap="ROUND" strokeMiterLimit="20.0" strokeType="OUTSIDE" strokeWidth="10.0" style="-fx-background-radius: 10;" width="124.0" />
+                  <Text fill="#ffb200" layoutX="583.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mij">
                      <font>
                         <Font name="Segoe UI Semibold" size="24.0" />
                      </font>
                   </Text>
-                  <Text layoutX="33.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home">
+                  <Text fill="#640d5f" layoutX="33.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home">
                      <font>
                         <Font name="Segoe UI Semibold" size="24.0" />
                      </font>
                   </Text>
-                  <Text layoutX="182.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Apparaat">
+                  <Text fill="#640d5f" layoutX="182.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Apparaat">
                      <font>
                         <Font name="Segoe UI Semibold" size="24.0" />
                      </font>
                   </Text>
-                  <Text layoutX="381.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gegevens">
+                  <Text fill="#640d5f" layoutX="381.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gegevens">
                      <font>
                         <Font name="Segoe UI Semibold" size="24.0" />
                      </font>
@@ -63,8 +63,8 @@
                </children>
             </Group>
             <!--            End of the navbar-->
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d9d9d9" height="130.0" layoutX="70.0" layoutY="79.0" stroke="#d9d9d9" strokeLineCap="ROUND" strokeWidth="20.0" width="562.0" />
-            <Text fx:id="usernameText" layoutX="226.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eb5b00" height="130.0" layoutX="70.0" layoutY="79.0" stroke="#eb5b00" strokeLineCap="ROUND" strokeWidth="20.0" width="562.0" />
+            <Text fx:id="usernameText" fill="#640d5f" layoutX="226.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0">
                <font>
                   <Font name="Segoe UI Semibold" size="36.0" />
                </font>
@@ -74,8 +74,8 @@
                   <Image url="@img/Mij.png" />
                </image>
             </ImageView>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d9d9d9" height="130.0" layoutX="64.0" layoutY="291.0" stroke="#d9d9d9" strokeLineCap="ROUND" strokeWidth="20.0" width="562.0" />
-            <Text fx:id="phonenumberText" layoutX="231.0" layoutY="388.0" strokeType="OUTSIDE" strokeWidth="0.0">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eb5b00" height="130.0" layoutX="64.0" layoutY="291.0" stroke="#eb5b00" strokeLineCap="ROUND" strokeWidth="20.0" width="562.0" />
+            <Text fx:id="phonenumberText" fill="#640d5f" layoutX="231.0" layoutY="388.0" strokeType="OUTSIDE" strokeWidth="0.0">
                <font>
                   <Font name="Segoe UI Semibold" size="36.0" />
                </font>
@@ -86,8 +86,8 @@
                </image>
             </ImageView>
             <Line endX="602.0" layoutX="98.0" layoutY="558.0" startX="-100.0" stroke="WHITE" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d9d9d9" height="84.0" layoutX="249.0" layoutY="620.0" onMouseClicked="#handleLogOutButton" stroke="#d9d9d9" strokeLineCap="ROUND" strokeWidth="20.0" width="181.0" />
-            <Text layoutX="261.0" layoutY="675.0" mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Uitloggen">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d91656" height="84.0" layoutX="249.0" layoutY="620.0" onMouseClicked="#handleLogOutButton" stroke="#d91656" strokeLineCap="ROUND" strokeWidth="20.0" width="181.0" />
+            <Text fill="#640d5f" layoutX="261.0" layoutY="675.0" mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Uitloggen">
                <font>
                   <Font name="Segoe UI Semibold" size="36.0" />
                </font>
