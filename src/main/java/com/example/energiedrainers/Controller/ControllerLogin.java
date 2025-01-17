@@ -31,11 +31,13 @@ public class  ControllerLogin {
     private PasswordField passwordField;
 
     @FXML
-    private Label errorLabel;
+    private Label errorLabel4;
 
-    public void initialize() {
-        errorLabel.setVisible(false);
-    }
+    @FXML
+    private Label errorLabel5;
+
+    @FXML
+    private Label errorLabel6;
 
 
 //    @FXML
@@ -57,7 +59,9 @@ public class  ControllerLogin {
 
 
         if (!isInputValid()) {
-            System.out.println("Please enter both username and password.");
+            errorLabel4.setText("Please enter both username and password.");
+            errorLabel5.setText("");
+            errorLabel6.setText("");
         } else {
             System.out.println("Check credentials"); // Clear any previous messages
             validateLogin(username, password, event);
@@ -119,20 +123,18 @@ public class  ControllerLogin {
                     Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
                     stage.setScene(homeScene);
                 } else {
-                    errorLabel.setText("Invalid username or password.");
-                }
+                    errorLabel5.setText("Invalid username or password.");
+                    errorLabel4.setText("");
+                    errorLabel6.setText("");                }
             } else {
-                errorLabel.setText("Invalid username or password.");
-            }
+                errorLabel5.setText("Invalid username or password.");
+                errorLabel4.setText("");
+                errorLabel6.setText("");            }
         } catch (Exception e) {
             e.printStackTrace();
-            errorLabel.setText("An error occurred while logging in.");
-
-
-
-
-
-
+            errorLabel6.setText("An error occurred while logging in.");
+            errorLabel4.setText("");
+            errorLabel5.setText("");
         }
     }
 
