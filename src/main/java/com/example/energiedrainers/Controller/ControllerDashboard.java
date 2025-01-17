@@ -36,6 +36,22 @@ public class ControllerDashboard {
     @FXML
     private Rectangle rectangle7;
 
+//    Initialize makes it accesible for all controller on the dashboard field
+    public void initialize(){
+                // Ensure all rectangles are initialized
+        System.out.println("Initializing Rectangles:");
+        System.out.println("Rectangle1: " + rectangle1);
+        System.out.println("Rectangle2: " + rectangle2);
+        System.out.println("Rectangle3: " + rectangle3);
+        System.out.println("Rectangle4: " + rectangle4);
+        System.out.println("Rectangle5: " + rectangle5);
+        System.out.println("Rectangle6: " + rectangle6);
+        System.out.println("Rectangle7: " + rectangle7);
+
+         // Call the rectangle update function once the scene is fully loaded
+        updateRectangles();
+    }
+
     @FXML
     public void handleHomeButton(MouseEvent event) {
         System.out.println("Home button clicked!");
@@ -173,9 +189,9 @@ public class ControllerDashboard {
                 }
             }
 
-            for (int LDRValue : LDRValues) {
-                System.out.println("Height Average🙂: " + LDRValue);
-            }
+//            for (int LDRValue : LDRValues) {
+//                System.out.println("Height Average🙂: " + LDRValue);
+//            }
 
             // Set the height for each rectangle based on LDRValues[i]
             rectangle1.setHeight(LDRValues.get(0));
@@ -185,10 +201,6 @@ public class ControllerDashboard {
             rectangle5.setHeight(LDRValues.get(4));
             rectangle6.setHeight(LDRValues.get(5));
             rectangle7.setHeight(LDRValues.get(6));
-
-            System.out.println("Test🙂" + this.rectangle1);
-            System.out.println("Test🥵" + rectangle1);
-
 
             // Rectangle array linked to FXML components
             List<Rectangle> rectangles = List.of(
@@ -208,14 +220,14 @@ public class ControllerDashboard {
             }
 
             // Fixed layoutY position of the bottom of the rectangles
-            double fixedBottomY = 243.0;  // starting Y position for the bottom of rectangles
+            double fixedBottomY = 265.0;  // starting Y position for the bottom of rectangles
 
             // Set the height for each rectangle based on LDRValues[i]
             for (int i = 0; i < rectangles.size(); i++) {
                 Rectangle rectangle = rectangles.get(i);
 
                 if (rectangle != null) {
-                    System.out.println("Adjusting rectangle " + (i + 1) + " with LDRValue: " + LDRValues.get(i));
+//                    System.out.println("Adjusting rectangle " + (i + 1) + " with LDRValue: " + LDRValues.get(i));
 
                     // Update the height and calculate layoutY based on height
                     rectangle.setHeight(LDRValues.get(i));  // Use LDRValues.get(i) to safely access values
@@ -225,13 +237,13 @@ public class ControllerDashboard {
                     Platform.runLater(() -> {
                         rectangle.setLayoutY(fixedBottomY - LDRValues.get(finalI));  // Calculate layoutY dynamically
 
-                        // Print out the properties to confirm changes
-                        System.out.println("Rectangle " + (finalI + 1) + " - Height: " + rectangle.getHeight() +
-                                ", LayoutY: " + rectangle.getLayoutY() +
-                                ", Width: " + rectangle.getWidth() +
-                                ", ArcHeight: " + rectangle.getArcHeight() +
-                                ", ArcWidth: " + rectangle.getArcWidth() +
-                                ", Fill: " + rectangle.getFill());
+//                        // Print out the properties to confirm changes
+//                        System.out.println("Rectangle " + (finalI + 1) + " - Height: " + rectangle.getHeight() +
+//                                ", LayoutY: " + rectangle.getLayoutY() +
+//                                ", Width: " + rectangle.getWidth() +
+//                                ", ArcHeight: " + rectangle.getArcHeight() +
+//                                ", ArcWidth: " + rectangle.getArcWidth() +
+//                                ", Fill: " + rectangle.getFill());
                     });
 
                 } else {

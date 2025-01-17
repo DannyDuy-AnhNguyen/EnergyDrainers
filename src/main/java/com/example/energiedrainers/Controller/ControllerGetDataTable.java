@@ -35,7 +35,6 @@ public class ControllerGetDataTable {
             idStatement = connection.prepareStatement(selectQuery);
             idStatement.setInt(1, UserSession.getID()); // Assuming UserSession.getID() retrieves the current user's ID
 
-            System.out.println("Executing query: " + idStatement);
             queryResult = idStatement.executeQuery();
 
             if (queryResult.next()) {
@@ -250,7 +249,7 @@ public class ControllerGetDataTable {
         int LDRBovenLinksDag = ControllerGetDataTable.getLDRBovenLinks(meting);
         int LDROnderRechtsDag = ControllerGetDataTable.getLDROnderRechts(meting);
         int LDROnderLinksDag = ControllerGetDataTable.getLDROnderLinks(meting);
-        int LDRAverage = ((LDRBovenRechtsDag +LDRBovenLinksDag + LDROnderRechtsDag + LDROnderLinksDag) / 4) * 10;
+        int LDRAverage = ((LDRBovenRechtsDag +LDRBovenLinksDag + LDROnderRechtsDag + LDROnderLinksDag) / 4) * 28;
         // System.out.println("Meting "+ meting + ": "+ LDRAverage);
 
         return LDRAverage;

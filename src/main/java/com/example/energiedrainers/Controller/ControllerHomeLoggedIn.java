@@ -11,13 +11,10 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 
 import javafx.scene.input.MouseEvent;
 import java.io.IOException;
 import java.sql.Connection;
-import java.util.List;
 
 public class ControllerHomeLoggedIn {
 
@@ -29,51 +26,12 @@ public class ControllerHomeLoggedIn {
     @FXML
     private Text usernameText;
 
-    //For the rectangle adjustments and need to connect this with the Dahsboard fxml as well:
-    @FXML
-    private Rectangle rectangle1;
-
-    @FXML
-    private Rectangle rectangle2;
-
-    @FXML
-    private Rectangle rectangle3;
-
-    @FXML
-    private Rectangle rectangle4;
-
-    @FXML
-    private Rectangle rectangle5;
-
-    @FXML
-    private Rectangle rectangle6;
-
-    @FXML
-    private Rectangle rectangle7;
-
-
-
 
     // This will be called after the FXML has been loaded and initialized
     public void initialize() {
         // Set the username text to display the current user's username from the session
         usernameText.setText("Welkom " + UserSession.getUsername());
-
-//        // Ensure all rectangles are initialized
-//        System.out.println("Initializing Rectangles:");
-//        System.out.println("Rectangle1: " + rectangle1);
-//        System.out.println("Rectangle2: " + rectangle2);
-//        System.out.println("Rectangle3: " + rectangle3);
-//        System.out.println("Rectangle4: " + rectangle4);
-//        System.out.println("Rectangle5: " + rectangle5);
-//        System.out.println("Rectangle6: " + rectangle6);
-//        System.out.println("Rectangle7: " + rectangle7);
-
-        // Call the rectangle update function once the scene is fully loaded
-//        updateRectangles();
     }
-
-
 
 
 //    This is the navigation bar. Click on the image to navigate
@@ -107,8 +65,6 @@ public class ControllerHomeLoggedIn {
 
         try {
             if(CheckKlantTrackerID > 0){
-//                String insertTest = ControllerGetDataTable.insertMetingDate(dag1, userID);
-//                System.out.println(insertTest);
 
                 // Load the new FXML
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/ApparaatOmvormerToegevoegd.fxml"));
@@ -147,7 +103,6 @@ public class ControllerHomeLoggedIn {
 
         try {
             if (CheckKlantTrackerID > 0) {
-                updateRectangles();
                 // Load the new FXML
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/Dashboard.fxml"));
                 Scene homeScene = new Scene(loader.load());
@@ -173,9 +128,6 @@ public class ControllerHomeLoggedIn {
         }
     }
 
-
-
-
     @FXML
     public void handleMijButton(MouseEvent event) {
         System.out.println("Mij button clicked!");
@@ -193,97 +145,4 @@ public class ControllerHomeLoggedIn {
             e.printStackTrace();
         }
     }
-
-//    Other functions
-@FXML
-public void updateRectangles() {
-    System.out.println("Initializing ControllerDashboard...");
-
-    // Fetch the last seven days and LDR values
-    List<String> dates;
-    List<Integer> LDRValues = new ArrayList<>();  // Use List instead of int[] to avoid indexing issues
-
-    try {
-        dates = ControllerGetDataTable.lastSevenDays();
-        if (dates == null || dates.size() < 7) {
-            System.err.println("Error: Could not retrieve valid last seven days.");
-            return;
-        }
-
-        for (String date : dates) {
-            Integer value = ControllerGetDataTable.getLDR_Average_Meting(date);
-            if (value == null) {
-                System.err.println("Error: LDR value for date " + date + " is null.");
-                LDRValues.add(0);  // Replace null with a default value
-            } else {
-                LDRValues.add(value);
-            }
-        }
-
-        for (int LDRValue : LDRValues) {
-            System.out.println("Height Average🙂: " + LDRValue);
-        }
-
-        // Set the height for each rectangle based on LDRValues[i]
-        rectangle1.setHeight(LDRValues.get(0));
-        rectangle2.setHeight(LDRValues.get(1));
-        rectangle3.setHeight(LDRValues.get(2));
-        rectangle4.setHeight(LDRValues.get(3));
-        rectangle5.setHeight(LDRValues.get(4));
-        rectangle6.setHeight(LDRValues.get(5));
-        rectangle7.setHeight(LDRValues.get(6));
-
-        System.out.println("Test🙂"+this.rectangle1);
-        System.out.println("Test🥵"+ rectangle1);
-
-
-        // Rectangle array linked to FXML components
-        List<Rectangle> rectangles = List.of(
-                this.rectangle1,
-                this.rectangle2,
-                this.rectangle3,
-                this.rectangle4,
-                this.rectangle5,
-                this.rectangle6,
-                this.rectangle7
-        );
-//        // Check if all rectangles are initialized correctly
-        if (rectangles == null || rectangles.size() != LDRValues.size()) {
-            System.err.println("Error: The number of rectangles does not match the LDR values.");
-            return;
-        }
-
-        // Fixed layoutY position of the bottom of the rectangles
-        double fixedBottomY = 243.0;  // starting Y position for the bottom of rectangles
-
-        // Set the height for each rectangle based on LDRValues[i]
-        for (int i = 0; i < rectangles.size(); i++) {
-            Rectangle rectangle = rectangles.get(i);
-
-            if (rectangle != null) {
-                System.out.println("Adjusting rectangle " + (i + 1) + " with LDRValue: " + LDRValues.get(i));
-
-                // Update the height and calculate layoutY based on height
-                rectangle.setHeight(LDRValues.get(i));  // Use LDRValues.get(i) to safely access values
-                rectangle.setLayoutY(fixedBottomY - LDRValues.get(i));  // Calculate layoutY dynamically
-
-                // Print out the properties to confirm changes
-                System.out.println("Rectangle " + (i + 1) + " - Height: " + rectangle.getHeight() +
-                        ", LayoutY: " + rectangle.getLayoutY() +
-                        ", Width: " + rectangle.getWidth() +
-                        ", ArcHeight: " + rectangle.getArcHeight() +
-                        ", ArcWidth: " + rectangle.getArcWidth() +
-                        ", Fill: " + rectangle.getFill());
-            } else {
-                System.out.println("Warning: Rectangle object is null at index " + i);
-            }
-        }
-
-        System.out.println("Initialization complete.");
-    } catch (Exception e) {
-        System.err.println("Error fetching LDR values: " + e.getMessage());
-        e.printStackTrace();
-    }
-}
-
 }
