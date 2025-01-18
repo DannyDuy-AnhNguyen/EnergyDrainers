@@ -25,6 +25,29 @@ public class ControllerApparaatOmvormerToegevoegd {
         idText.setText("Uw tracker: "+ ControllerGetDataTable.getKlantIDViaTracker());
     }
 
+    @FXML
+    public void handleSelectTracker(MouseEvent event){
+        int selectQuery = ControllerGetDataTable.getKlantIDViaTracker();
+
+        try{
+            if(selectQuery >= 1){
+                System.out.println("Test");
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/Dashboard.fxml"));
+                Scene homeScene = new Scene(loader.load());
+
+                // Get the current stage
+                System.out.println("Test2");
+                Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+
+                // Set the new scene
+                stage.setScene(homeScene);
+            }
+        } catch (Exception e) {
+            System.out.println("An error occurred while selecting a tracker.");
+            e.printStackTrace();
+            // Optionally show an alert dialog to inform the user
+        }
+    }
 
     @FXML
     public void handleAddDevice(MouseEvent event){

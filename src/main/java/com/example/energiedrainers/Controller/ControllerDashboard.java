@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import java.util.*;
 
@@ -36,9 +37,55 @@ public class ControllerDashboard {
     @FXML
     private Rectangle rectangle7;
 
+//    Show the text for the time for the last 7 five minutes
+//    Each 5 minute
+    @FXML
+    private Text textTime1;
+
+    @FXML
+    private Text textTime2;
+
+    @FXML
+    private Text textTime3;
+
+    @FXML
+    private Text textTime4;
+
+    @FXML
+    private Text textTime5;
+
+    @FXML
+    private Text textTime6;
+
+    @FXML
+    private Text textTime7;
+//    Tracker of the user:
+    @FXML
+    private Text yourTracker;
+
+    @FXML
+    private Text currentDate;
+
 //    Initialize makes it accesible for all controller on the dashboard field
     public void initialize(){
-                // Ensure all rectangles are initialized
+        // Set text for each time for the UX😉
+        List<String> lastFiveMinute = ControllerGetDataTable.lastFiveMinutes();
+        Calendar c = Calendar.getInstance();
+        int day = c.get(Calendar.DAY_OF_MONTH);
+        int month = c.get(Calendar.MONTH) + 1; // Month is 0-based
+        int year = c.get(Calendar.YEAR);
+
+        textTime1.setText(lastFiveMinute.get(0));
+        textTime2.setText(lastFiveMinute.get(1));
+        textTime3.setText(lastFiveMinute.get(2));
+        textTime4.setText(lastFiveMinute.get(3));
+        textTime5.setText(lastFiveMinute.get(4));
+        textTime6.setText(lastFiveMinute.get(5));
+        textTime7.setText(lastFiveMinute.get(6));
+        yourTracker.setText("Uw Tracker: "+ ControllerGetDataTable.getKlantIDViaTracker());
+        currentDate.setText(ControllerGetDataTable.GetDayOfWeek() + " " + day + "-" + month + "-" + year);
+
+        // Ensure all rectangles are initialized
         System.out.println("Initializing Rectangles:");
         System.out.println("Rectangle1: " + rectangle1);
         System.out.println("Rectangle2: " + rectangle2);
@@ -168,41 +215,31 @@ public class ControllerDashboard {
     public void updateRectangles() {
         System.out.println("Initializing ControllerDashboard...");
 
-        // Fetch the last seven days and LDR values
-        List<String> dates;
+        // Fetch the last five minutes and LDR values
+        List<String> times;
         List<Integer> LDRValues = new ArrayList<>();  // Use List instead of int[] to avoid indexing issues
-
         try {
-            dates = ControllerGetDataTable.lastSevenDays();
-            if (dates == null || dates.size() < 7) {
-                System.err.println("Error: Could not retrieve valid last seven days.");
+            // Retrieve the last five-minute intervals
+            times = ControllerGetDataTable.lastFiveMinutes();
+            if (times == null || times.size() < 7) {
+                System.err.println("Error: Could not retrieve valid last five-minute intervals.");
                 return;
             }
 
-            for (String date : dates) {
-                Integer value = ControllerGetDataTable.getLDR_Average_Meting(date);
+            // Fetch LDR values for the intervals
+            for (String time : times) {
+                Integer value = ControllerGetDataTable.getLDR_Average_Meting(time);
                 if (value == null) {
-                    System.err.println("Error: LDR value for date " + date + " is null.");
+                    System.err.println("Error: LDR value for time " + time + " is null.");
                     LDRValues.add(0);  // Replace null with a default value
                 } else {
                     LDRValues.add(value);
                 }
             }
+            System.out.println("💀:"+ times);
 
-//            for (int LDRValue : LDRValues) {
-//                System.out.println("Height Average🙂: " + LDRValue);
-//            }
 
-            // Set the height for each rectangle based on LDRValues[i]
-            rectangle1.setHeight(LDRValues.get(0));
-            rectangle2.setHeight(LDRValues.get(1));
-            rectangle3.setHeight(LDRValues.get(2));
-            rectangle4.setHeight(LDRValues.get(3));
-            rectangle5.setHeight(LDRValues.get(4));
-            rectangle6.setHeight(LDRValues.get(5));
-            rectangle7.setHeight(LDRValues.get(6));
-
-            // Rectangle array linked to FXML components
+            // Verify the rectangles list size matches LDR values
             List<Rectangle> rectangles = List.of(
                     this.rectangle1,
                     this.rectangle2,
@@ -213,8 +250,7 @@ public class ControllerDashboard {
                     this.rectangle7
             );
 
-            // Check if all rectangles are initialized correctly
-            if (rectangles == null || rectangles.size() != LDRValues.size()) {
+            if (rectangles.size() != LDRValues.size()) {
                 System.err.println("Error: The number of rectangles does not match the LDR values.");
                 return;
             }
@@ -222,30 +258,19 @@ public class ControllerDashboard {
             // Fixed layoutY position of the bottom of the rectangles
             double fixedBottomY = 265.0;  // starting Y position for the bottom of rectangles
 
-            // Set the height for each rectangle based on LDRValues[i]
+            // Update the rectangles dynamically
             for (int i = 0; i < rectangles.size(); i++) {
                 Rectangle rectangle = rectangles.get(i);
 
                 if (rectangle != null) {
-//                    System.out.println("Adjusting rectangle " + (i + 1) + " with LDRValue: " + LDRValues.get(i));
-
-                    // Update the height and calculate layoutY based on height
-                    rectangle.setHeight(LDRValues.get(i));  // Use LDRValues.get(i) to safely access values
-
-                    // Here, we update layoutY on the JavaFX Application Thread
                     int finalI = i;
+                    int ldrValue = LDRValues.get(finalI);
+
+                    // Update height and layoutY on the JavaFX Application Thread
                     Platform.runLater(() -> {
-                        rectangle.setLayoutY(fixedBottomY - LDRValues.get(finalI));  // Calculate layoutY dynamically
-
-//                        // Print out the properties to confirm changes
-//                        System.out.println("Rectangle " + (finalI + 1) + " - Height: " + rectangle.getHeight() +
-//                                ", LayoutY: " + rectangle.getLayoutY() +
-//                                ", Width: " + rectangle.getWidth() +
-//                                ", ArcHeight: " + rectangle.getArcHeight() +
-//                                ", ArcWidth: " + rectangle.getArcWidth() +
-//                                ", Fill: " + rectangle.getFill());
+                        rectangle.setHeight(ldrValue);
+                        rectangle.setLayoutY(fixedBottomY - ldrValue);
                     });
-
                 } else {
                     System.out.println("Warning: Rectangle object is null at index " + i);
                 }
@@ -257,6 +282,7 @@ public class ControllerDashboard {
             e.printStackTrace();
         }
     }
+
 
 
 

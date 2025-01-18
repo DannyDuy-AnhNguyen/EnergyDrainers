@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -76,7 +77,7 @@ public class ControllerGetDataTable {
 
         try (PreparedStatement idStatement = connection.prepareStatement(selectQuery)) {
             idStatement.setInt(1, getKlantIDViaTracker());
-            idStatement.setString(2, datum + "%");
+            idStatement.setString(2, "%" + datum + "%");
 
             try (ResultSet queryResult = idStatement.executeQuery()) {
                 if (queryResult.next()) {
@@ -103,7 +104,7 @@ public class ControllerGetDataTable {
 
         try (PreparedStatement idStatement = connection.prepareStatement(selectQuery)) {
             idStatement.setInt(1, getKlantIDViaTracker());
-            idStatement.setString(2, datum + "%");
+            idStatement.setString(2, "%" + datum + "%");
 
             try (ResultSet queryResult = idStatement.executeQuery()) {
                 if (queryResult.next()) {
@@ -131,7 +132,7 @@ public class ControllerGetDataTable {
 
         try (PreparedStatement idStatement = connection.prepareStatement(selectQuery)) {
             idStatement.setInt(1, getKlantIDViaTracker());
-            idStatement.setString(2, datum + "%");
+            idStatement.setString(2, "%" + datum + "%");
 
             try (ResultSet queryResult = idStatement.executeQuery()) {
                 if (queryResult.next()) {
@@ -159,7 +160,7 @@ public class ControllerGetDataTable {
 
         try (PreparedStatement idStatement = connection.prepareStatement(selectQuery)) {
             idStatement.setInt(1, getKlantIDViaTracker());
-            idStatement.setString(2, datum + "%");
+            idStatement.setString(2, "%" + datum + "%");
 
             try (ResultSet queryResult = idStatement.executeQuery()) {
                 if (queryResult.next()) {
@@ -191,52 +192,49 @@ public class ControllerGetDataTable {
     }
 
     //    Date inside a list
-    public static List<String> lastSevenDays(){
+    public static List<String> lastFiveMinutes() {
+        // Create a Calendar instance set to the current time
         Calendar c = Calendar.getInstance();
 
-        // List to store the past 7 days' dates
-        List<String> pastSevenDates = new ArrayList<>();
-        int day = c.get(Calendar.DAY_OF_MONTH);
-        int month = c.get(Calendar.MONTH) + 1; // Month is 0-based
-        int year = c.get(Calendar.YEAR);
+        // Round down the current minute to the nearest multiple of 5
+        int minute = c.get(Calendar.MINUTE);
+        int roundedMinute = minute - (minute % 5);
+        c.set(Calendar.MINUTE, roundedMinute);
+        c.set(Calendar.SECOND, 0); // Set seconds to 0 for consistency
 
-        String currentDate = year + "-" + (month < 10 ? "0" + month : month) + "-" + (day < 10 ? "0" + day : day);
-        pastSevenDates.add(currentDate);
+        // Create a list to store the last five minute timestamps
+        List<String> pastFiveMinutes = new ArrayList<>();
 
-        // Generate the past 7 days' dates
-        for (int i = 0; i < 6; i++) {
-            c.add(Calendar.DAY_OF_MONTH, -1); // Move back 1 day
-            day = c.get(Calendar.DAY_OF_MONTH);
-            month = c.get(Calendar.MONTH) + 1; // Month is 0-based
-            year = c.get(Calendar.YEAR);
+        // Define a formatter for the time (e.g., HH:mm)
+        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
 
-            // Format the date with zero-padded day and month
-            String formattedDate = year + "-" + (month < 10 ? "0" + month : month) + "-" + (day < 10 ? "0" + day : day);
+        // Iterate backward in steps of 5 minutes
+        for (int i = 0; i < 7; i++) {
+            // Format the current time and add it to the list
+            pastFiveMinutes.add(timeFormat.format(c.getTime()));
 
-            // Add the formatted date to the list
-            pastSevenDates.add(formattedDate);
-
-            // Print the date
-            System.out.println("Date " + (i + 1) + ": " + formattedDate);
+            // Subtract 5 minutes
+            c.add(Calendar.MINUTE, -5);
         }
 
-        // Example usage of the pastSevenDates list
-        System.out.println("\nGenerated Dates List:");
-//        for (String date : pastSevenDates) {
-//            System.out.println(date);
-//        }
-//
-        // Reset the calendar to today's date
-        c = Calendar.getInstance();
-        int currentDay = c.get(Calendar.DAY_OF_MONTH);
-        int currentMonth = c.get(Calendar.MONTH) + 1;
-        int currentYear = c.get(Calendar.YEAR);
+        return pastFiveMinutes;
+    }
 
-//        System.out.println("\nCurrent day is " + currentDay);
-//        System.out.println("Current month is " + currentMonth);
-//        System.out.println("Current year is " + currentYear);
+    //    Return the correct date🙂
+    public static String GetDayOfWeek() {
+        Calendar c = Calendar.getInstance();
+        int today = c.get(Calendar.DAY_OF_WEEK);
 
-        return pastSevenDates;
+        return switch (today) {
+            case 1 -> "Zondag";
+            case 2 -> "Maandag";
+            case 3 -> "Dinsdag";
+            case 4 -> "Woensdag";
+            case 5 -> "Donderdag";
+            case 6 -> "Vrijdag";
+            case 7 -> "Zaterdag";
+            default -> "Unknown";
+        };
     }
 
 }

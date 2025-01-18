@@ -38,14 +38,15 @@ public class ControllerHomeLoggedIn {
     }
 
     public static int getLDRText(){
-        List<String> dates = ControllerGetDataTable.lastSevenDays();
-        String dag1 = dates.get(0);
+        List<String> lastFiveMinute = ControllerGetDataTable.lastFiveMinutes();
+        System.out.println(lastFiveMinute);
+        String fiveMinute1 = lastFiveMinute.get(0);
 
         //Dag 1
-        int LDRBovenRechtsDag1 = ControllerGetDataTable.getLDRBovenRechts(dag1);
-        int LDRBovenLinksDag1 = ControllerGetDataTable.getLDRBovenLinks(dag1);
-        int LDROnderRechtsDag1 = ControllerGetDataTable.getLDROnderRechts(dag1);
-        int LDROnderLinksDag1 = ControllerGetDataTable.getLDROnderLinks(dag1);
+        int LDRBovenRechtsDag1 = ControllerGetDataTable.getLDRBovenRechts(fiveMinute1);
+        int LDRBovenLinksDag1 = ControllerGetDataTable.getLDRBovenLinks(fiveMinute1);
+        int LDROnderRechtsDag1 = ControllerGetDataTable.getLDROnderRechts(fiveMinute1);
+        int LDROnderLinksDag1 = ControllerGetDataTable.getLDROnderLinks(fiveMinute1);
         int LDRAverage1 = (LDRBovenRechtsDag1 + LDRBovenLinksDag1 + LDROnderRechtsDag1 + LDROnderLinksDag1) / 4;
 
         return LDRAverage1;

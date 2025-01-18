@@ -15,7 +15,7 @@
             <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="1485.0" prefWidth="700.0">
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffb200" height="845.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="700.0" />
-                  <Text fill="#640d5f" layoutX="46.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[Zonnepaneel's serienummer]">
+                  <Text fx:id="yourTracker" fill="#640d5f" layoutX="46.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0">
                      <font>
                         <Font name="Segoe UI Semibold" size="45.0" />
                      </font>
@@ -68,7 +68,7 @@
                   </Group>
             <Group layoutX="37.0" layoutY="158.1015625">
                <children>
-                        <Text fill="#7417bf" layoutX="1.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aantal uren zon per dag">
+                        <Text fx:id="currentDate" fill="#7417bf" layoutX="1.0" strokeType="OUTSIDE" strokeWidth="0.0">
                            <font>
                               <Font name="Segoe UI Semibold" size="24.0" />
                            </font>
@@ -144,37 +144,37 @@
                         <Line endX="15.666664123535156" layoutX="21.0" layoutY="49.44921875" startX="-10.5" />
                         <Line endX="15.666664123535156" layoutX="21.0" layoutY="24.44921875" startX="-10.5" />
                         <Line endX="11.333335876464844" layoutX="24.0" layoutY="-2.55078125" startX="-10.5" />
-                        <Text layoutX="76.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ma">
+                        <Text fx:id="textTime1" layoutX="76.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0">
                            <font>
                               <Font name="Segoe UI Semibold" size="12.0" />
                            </font>
                         </Text>
-                        <Text layoutX="143.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Di">
+                        <Text fx:id="textTime2" layoutX="143.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0">
                            <font>
                               <Font name="Segoe UI Semibold" size="12.0" />
                            </font>
                         </Text>
-                        <Text layoutX="213.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Woe">
+                        <Text fx:id="textTime3" layoutX="213.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" >
                            <font>
                               <Font name="Segoe UI Semibold" size="12.0" />
                            </font>
                         </Text>
-                        <Text layoutX="290.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Do">
+                        <Text fx:id="textTime4" layoutX="290.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0">
                            <font>
                               <Font name="Segoe UI Semibold" size="12.0" />
                            </font>
                         </Text>
-                        <Text layoutX="362.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vr">
+                        <Text fx:id="textTime5" layoutX="362.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0">
                            <font>
                               <Font name="Segoe UI Semibold" size="12.0" />
                            </font>
                         </Text>
-                        <Text layoutX="436.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zat">
+                        <Text fx:id="textTime6" layoutX="436.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" >
                            <font>
                               <Font name="Segoe UI Semibold" size="12.0" />
                            </font>
                         </Text>
-                        <Text layoutX="507.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zo">
+                        <Text fx:id="textTime7" layoutX="507.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0">
                            <font>
                               <Font name="Segoe UI Semibold" size="12.0" />
                            </font>
