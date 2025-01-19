@@ -1,55 +1,71 @@
-#include <Servo.h>
+int topleft;
+int topright;
+int downleft;
+int downright;
+int waittime = 0;
 
-// make ints for analog inputs
-int TopLeft = A0;
-int TopRight = A1;
-int BottomLeft = A2;
-int BottomRight = A3;
-
-// make ints for storing analog inputs for servo
-int valTL;
-int valTR;
-int valBL;
-int valBR;
-
-// create ints for outputs
-int AzimuthLeft;
-int AzimuthRight;
-int tiltUp;
-int tiltDown;
-
-// create servo objects
-Servo servoAttitude;
-Servo servoAzimuth;
-
-void setup()
-{
-  servoAzimuth.attach(9); //couple servo that turns to output 9
-  servoAttitude.attach(10); // couple servo that tilts to output 10
-
+void setup() {
+  pinMode(9, OUTPUT);
+  pinMode(10, OUTPUT);
+  TCCR1A = 0;
+  TCCR1A = (1 << COM1A1) | (1 << COM1B1) | (1 << WGM11);
+  TCCR1B = 0;
+  TCCR1B = (1 << WGM13) | (1 << WGM12) | (1 << CS11);
+  ICR1 = 40000;
+  OCR1A = 3000;
+  OCR1B = 3600;
 }
 
-void loop()
-{
-  valTL = analogRead(TopLeft); // log analog inputs into integers
-  valTR = analogRead(TopRight);
-  valBL = analogRead(BottomLeft);
-  valBR = analogRead(BottomRight);
+void loop() {
+  topleft = analogRead(A0);
+  topright = analogRead(A1);
+  downleft = analogRead(A2);
+  downright = analogRead(A3);
 
-
-  tiltUp = TopRight + TopLeft;
-  tiltDown = BottomRight + BottomLeft;
-  AzimuthLeft = TopLeft + BottomLeft;
-  AzimuthRight = TopRight + BottomRight;
-
-  tiltUp = map(tiltUp, 0, 1023, 0, 90);
-  tiltDown = map(tiltDown, 0, 1023, 0, 90);
-  AzimuthLeft = map(AzimuthLeft, 0, 1023, 0, 180);
-  AzimuthRight = map(AzimuthRight, 0, 1023, 0, 180);
-  
-  
-  
-  if(tiltUp > tiltDown) {
-    servoAttitude.write(tiltUp);
+  if (topleft > topright) {
+    OCR1A = OCR1A + 1;
+    delay(waittime);
   }
+  if (downleft > downright) {
+    OCR1A = OCR1A + 1;
+    delay(waittime);
+  }
+  if (topleft < topright) {
+    OCR1A = OCR1A - 1;
+    delay(waittime);
+  }
+  if (downleft < downright) {
+    OCR1A = OCR1A - 1;
+    delay(waittime);
+  }
+  if (OCR1A > 4000) {
+    OCR1A = 4000;
+  }
+  if (OCR1A < 2000) {
+    OCR1A = 2000;
+  }
+  if (topleft > downleft) {
+    OCR1B = OCR1B - 1;
+    delay(waittime);
+  }
+  if (topright > downright) {
+    OCR1B = OCR1B - 1;
+    delay(waittime);
+  }
+  if (topleft < downleft) {
+    OCR1B = OCR1B + 1;
+    delay(waittime);
+  }
+  if (topright < downright) {
+    OCR1B = OCR1B + 1;
+    delay(waittime);
+  }
+  if (OCR1B > 4200) {
+    OCR1B = 4200;
+  }
+  if (OCR1B < 3000) {
+    OCR1B = 3000;
+  }
+
+
 }
