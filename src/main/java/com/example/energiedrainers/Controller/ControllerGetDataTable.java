@@ -21,14 +21,13 @@ public class ControllerGetDataTable {
 
     //    Add the number tracker
     // Method to get the TrackerID associated with the KlantID
-    public static int getKlantIDViaTracker() {
+    public static List<Integer> getKlantIDViaTracker() {
         DatabaseConnection databaseConnection = new DatabaseConnection();
         Connection connection = null;
         PreparedStatement idStatement = null;
         ResultSet queryResult = null;
 
-        int selectID = -1; // Default value if no tracker is found
-
+        List<Integer> trackerIDs = new ArrayList<>();  // Store multiple TrackerIDs
         String selectQuery = "SELECT TrackerID FROM tracker WHERE KlantID = ?";
 
         try {
@@ -38,18 +37,21 @@ public class ControllerGetDataTable {
 
             queryResult = idStatement.executeQuery();
 
-            if (queryResult.next()) {
-                selectID = queryResult.getInt("TrackerID"); // Correct column name
-                System.out.println("Retrieved TrackerID: " + selectID);
-            } else {
+            while (queryResult.next()) {
+                int trackerID = queryResult.getInt("TrackerID"); // Correct column name
+                trackerIDs.add(trackerID);  // Add each TrackerID to the list
+                System.out.println("Retrieved TrackerID: " + trackerID);
+            }
+
+            if (trackerIDs.isEmpty()) {
                 System.out.println("No TrackerID found for the given KlantID.");
             }
 
         } catch (SQLException e) {
-            System.err.println("SQL error while retrieving TrackerID: " + e.getMessage());
+            System.err.println("SQL error while retrieving TrackerIDs: " + e.getMessage());
             e.printStackTrace();
         } catch (Exception e) {
-            System.err.println("Unexpected error while retrieving TrackerID: " + e.getMessage());
+            System.err.println("Unexpected error while retrieving TrackerIDs: " + e.getMessage());
             e.printStackTrace();
         } finally {
             // Close resources in the finally block
@@ -62,10 +64,40 @@ public class ControllerGetDataTable {
                 e.printStackTrace();
             }
         }
-        System.out.println("Done😉");
 
-        return selectID;
+        System.out.println("Done😉");
+        return trackerIDs;
     }
+
+    public static Boolean checkUsername(String username) {
+        DatabaseConnection connectionNow = new DatabaseConnection();
+        Connection connectDB = connectionNow.getConnection();
+
+        String verifyLoginQuery = "SELECT Gebruikersnaam FROM klant WHERE Gebruikersnaam = ?";
+        try (PreparedStatement preparedStatement = connectDB.prepareStatement(verifyLoginQuery)) {
+            preparedStatement.setString(1, username);
+
+            ResultSet queryResult = preparedStatement.executeQuery();
+
+            if (queryResult.next()) {
+                String foundUsername = queryResult.getString("Gebruikersnaam"); // Retrieve the username from the result
+
+                System.out.println("Check if the username exists: FOUND");
+                System.out.println("Provided username: " + username);
+                System.out.println("Database username: " + foundUsername);
+
+                if (foundUsername.equals(username)) {
+//                    System.out.println("Username already exists! Registration stopped.");
+                    return false; // Registration should stop
+                }
+            }
+        } catch (SQLException e) {
+            System.err.println("Error checking username: " + e.getMessage());
+        }
+        return true; // Username does not exist, registration can continue
+    }
+
+
 
 //    Get the data of the LDR based on the data of the TrackerID
     public static int getLDRBovenRechts(String datum){
@@ -75,8 +107,10 @@ public class ControllerGetDataTable {
         int ldrBovenRechts = 0;
         String selectQuery = "SELECT LDR_BovenRechts FROM meting WHERE TrackerID = ? AND Tijdstip LIKE ?";
 
+
+
         try (PreparedStatement idStatement = connection.prepareStatement(selectQuery)) {
-            idStatement.setInt(1, getKlantIDViaTracker());
+            idStatement.setInt(1, getKlantIDViaTracker().get(0));
             idStatement.setString(2, "%" + datum + "%");
 
             try (ResultSet queryResult = idStatement.executeQuery()) {
@@ -103,7 +137,7 @@ public class ControllerGetDataTable {
         String selectQuery = "SELECT LDR_BovenLinks FROM meting WHERE TrackerID = ? AND Tijdstip LIKE ?";
 
         try (PreparedStatement idStatement = connection.prepareStatement(selectQuery)) {
-            idStatement.setInt(1, getKlantIDViaTracker());
+            idStatement.setInt(1, getKlantIDViaTracker().get(0));
             idStatement.setString(2, "%" + datum + "%");
 
             try (ResultSet queryResult = idStatement.executeQuery()) {
@@ -131,7 +165,7 @@ public class ControllerGetDataTable {
         String selectQuery = "SELECT LDR_OnderRechts FROM meting WHERE TrackerID = ? AND Tijdstip LIKE ?";
 
         try (PreparedStatement idStatement = connection.prepareStatement(selectQuery)) {
-            idStatement.setInt(1, getKlantIDViaTracker());
+            idStatement.setInt(1, getKlantIDViaTracker().get(0));
             idStatement.setString(2, "%" + datum + "%");
 
             try (ResultSet queryResult = idStatement.executeQuery()) {
@@ -159,7 +193,7 @@ public class ControllerGetDataTable {
         String selectQuery = "SELECT LDR_OnderLinks FROM meting WHERE TrackerID = ? AND Tijdstip LIKE ?";
 
         try (PreparedStatement idStatement = connection.prepareStatement(selectQuery)) {
-            idStatement.setInt(1, getKlantIDViaTracker());
+            idStatement.setInt(1, getKlantIDViaTracker().get(0));
             idStatement.setString(2, "%" + datum + "%");
 
             try (ResultSet queryResult = idStatement.executeQuery()) {

@@ -55,6 +55,9 @@ public class ControllerRegister {
     @FXML
     private Label errorLabel3;
 
+    @FXML
+    private Label errorLabel4;
+
 
     // Regex voor wachtwoordregels
     private static final String PASSWORD_PATTERN =
@@ -84,6 +87,7 @@ public class ControllerRegister {
         if (firstName.isEmpty() || lastName.isEmpty() || userName.isEmpty() || phone.isEmpty() || password.isEmpty() || repeatPassword.isEmpty()) {
             errorLabel2.setText("Please fill all the fields");
             errorLabel3.setText("");
+            errorLabel4.setText("");
             errorLabel.setText("");
             return;
         }
@@ -91,12 +95,22 @@ public class ControllerRegister {
         else if (!password.equals(repeatPassword)) {
             errorLabel3.setText("Passwords do not match.");
             errorLabel2.setText("");
+            errorLabel4.setText("");
             errorLabel.setText("");
             return;
         }
 
         else if (!isPasswordValid(password)) {
             errorLabel.setText("Password must be at least 12 characters, include a number, a special symbol, and an uppercase letter.");
+            errorLabel2.setText("");
+            errorLabel3.setText("");
+            errorLabel4.setText("");
+            return;
+        }
+
+        else if(!ControllerGetDataTable.checkUsername(userName)){
+            errorLabel4.setText("Username already exist! Choose another username.");
+            errorLabel.setText("");
             errorLabel2.setText("");
             errorLabel3.setText("");
             return;
