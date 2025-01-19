@@ -123,22 +123,13 @@ public class ControllerDashboard {
     public void handleApparaatButton(MouseEvent event) {
         System.out.println("Apparaat button clicked!\nChecks of the user already has a tracker on his name...");
 
-        int CheckKlantTrackerID = ControllerGetDataTable.getKlantIDViaTracker();
-        System.out.println("CheckKlantTrackerID: "+ CheckKlantTrackerID);
+        List<Integer> trackerIDs = ControllerGetDataTable.getKlantIDViaTracker();  // Call the function to get tracker IDs
 
-        try {
-            if(CheckKlantTrackerID > 0){
-                // Load the new FXML
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/ApparaatOmvormerToegevoegd.fxml"));
-                Scene homeScene = new Scene(loader.load());
+        if (trackerIDs.isEmpty()) {
+            System.out.println("No trackers found.");
 
-                // Get the current stage
-                Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-
-                // Set the new scene
-                stage.setScene(homeScene);
-            } else{
-                // Load the new FXML
+            try {
+                // Load the ApparaatVoegNieuweApparaat.fxml if no trackers exist
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/ApparaatVoegNieuweApparaat.fxml"));
                 Scene homeScene = new Scene(loader.load());
 
@@ -147,8 +138,30 @@ public class ControllerDashboard {
 
                 // Set the new scene
                 stage.setScene(homeScene);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
 
+            return; // Exit the method to avoid accessing trackerIDs.get(0)
+        }
+
+        System.out.println("Found multiple trackers: " + trackerIDs);
+
+        int CheckKlantTrackerID = trackerIDs.get(0);
+        System.out.println("CheckKlantTrackerID: " + CheckKlantTrackerID);
+
+        try {
+            if (CheckKlantTrackerID > 0) {
+                // Load the Dashboard.fxml
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/ApparaatOmvormerToegevoegd.fxml"));
+                Scene homeScene = new Scene(loader.load());
+
+                // Get the current stage
+                Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+
+                // Set the new scene
+                stage.setScene(homeScene);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -159,15 +172,16 @@ public class ControllerDashboard {
     public void handleGegevensButton(MouseEvent event) {
         System.out.println("Gegevens button clicked!");
 
-        int CheckKlantTrackerID = ControllerGetDataTable.getKlantIDViaTracker();
-        System.out.println("CheckKlantTrackerID: " + CheckKlantTrackerID);
+        // Get tracker IDs from ControllerGetDataTable
+        List<Integer> trackerIDs = ControllerGetDataTable.getKlantIDViaTracker();
 
+        // Check if there are no trackers
+        if (trackerIDs.isEmpty()) {
+            System.out.println("No trackers found.");
 
-        try {
-            if (CheckKlantTrackerID > 0) {
-                updateRectangles();
-                 // Load the new FXML
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/Dashboard.fxml"));
+            try {
+                // Load the ApparaatVoegNieuweApparaat.fxml if no trackers exist
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/ApparaatVoegNieuweApparaat.fxml"));
                 Scene homeScene = new Scene(loader.load());
 
                 // Get the current stage
@@ -175,9 +189,21 @@ public class ControllerDashboard {
 
                 // Set the new scene
                 stage.setScene(homeScene);
-            } else {
-                // Load the fallback FXML
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/ApparaatVoegNieuweApparaat.fxml"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            return; // Exit the method to avoid accessing trackerIDs.get(0)
+        }
+
+        // If trackers exist
+        int CheckKlantTrackerID = trackerIDs.get(0);
+        System.out.println("CheckKlantTrackerID: " + CheckKlantTrackerID);
+
+        try {
+            if (CheckKlantTrackerID > 0) {
+                // Load the Dashboard.fxml
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/energiedrainers/Dashboard.fxml"));
                 Scene homeScene = new Scene(loader.load());
 
                 // Get the current stage
@@ -190,6 +216,7 @@ public class ControllerDashboard {
             e.printStackTrace();
         }
     }
+
 
 
     @FXML

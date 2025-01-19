@@ -30,8 +30,9 @@ CREATE TABLE `klant` (
   `Gebruikersnaam` varchar(30) NOT NULL,
   `Wachtwoord` varchar(255) NOT NULL,
   PRIMARY KEY (`KlantID`),
-  UNIQUE KEY `KlantID` (`KlantID`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  UNIQUE KEY `KlantID` (`KlantID`),
+  UNIQUE KEY `Gebruikersnaam` (`Gebruikersnaam`)
+) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +41,7 @@ CREATE TABLE `klant` (
 
 LOCK TABLES `klant` WRITE;
 /*!40000 ALTER TABLE `klant` DISABLE KEYS */;
-INSERT INTO `klant` VALUES (1,'Test','Test','Test','Test','Test'),(2,'112','Skibidi','Toilet','Brainrot','Jr7Qcl+69IQwTgpyNg87kY+XS5OEwr4kbLXqTltmnPI='),(3,'911','Sonic','the Hedhehog','Sonic1991','$2a$10$r0.ALFeE2HKaEBGxW2d34OCbXbjXsp915ctb12o53t/1HAqXQf7Ri'),(4,'112','Friedrich','Nietzsche','Nietzsche1844','$2a$10$ssRFZJqf2ZkYNR7pPaKPhuMLNGwYAi3bCuGfdLdiJ/lfbO6h7oBB.'),(5,'112','Laozi','Taoism','TaoismForLife','$2a$10$r0Ftq9voxzWiS4X0fAn60Oi4OjEU5kPwY9S89SQAV7gxmWTSKKlNC'),(6,'112','Sun','Drainers','SunDrainers','$2a$10$RRW2wjZJoEE6QfKgpkTe6OKGwMaDsTJZgOYg41IwHFThC4X6.3vu2'),(7,'112','Danny','Phantom','DannyPhantom','$2a$10$R.YkIRDrIX7uI1z92EpWfe2yTDwBltDcjjN2Sl.a6ZoLXnsAo2K4m'),(8,'3107142563','Pikachu','Ketchup','PikachuKethup','$2a$10$aFloLnugkTjon61ZROX/hu6F50RBfI2JvNPWWXXKBDnpikO7.ivfa'),(9,'test','test','test','test','$2a$10$IWIZaZFKFH3lChe0H065VO7K1gfV20wxoZoPerQhi8hETwEChnxrS'),(10,'1234','Koe','Art','KoeArt','$2a$10$pp3IE7gHkms4LzQtTH16i.clM6V8UuJIEyTEX5sqMQUQyNyOxlF.W'),(11,'112','Mono','Poly','Monopoly','$2a$10$U6WLYZZtaUVBiyIAJbMVlupkvBQnh.CLlse6fVdZPh5sWk96DbLyu'),(12,'112','Best','ie','Bestie','$2a$10$AJolLTi9bZs/SYTJW.R0i.YU9uSVN7h8et90rh.Vf9RVRvtgr/1.q'),(13,'112','Giga','Chad','GigaChad2004','$2a$10$k.ofv1iDRJCf6IxMjMtfg.Tt/I9V7mSeJjex5xVQd3l96oOnXzA/G'),(14,'112','Adidas','Imposter','AdidasImposter','$2a$10$F3Ab1ohSlClK62oc6F/BAusVbd.r5slHyXpDrQMMjT7.EVQX9s.aa'),(15,'0612345678','Skibidi','Izzler','SkibidiRizzler','$2a$10$w79n.mrOUKAYL2811tzAFunu9snmkdRQxXsEDlnUhu4usTQby3EhK'),(16,'112','CoCo','Melon','CoCoMelon','$2a$10$gSJABvbRKyjlto6spiWa9O4NFkA0PoWFfa1rdiqWXiLOSFW6At9dW'),(17,'1','t','t','t','$2a$10$3wgLdfTUw.nslefGsm5BWOy0/A.QtUuTqfLNicGvWeOnNmVUnRTZm'),(18,'1','t','t','t','$2a$10$Mh/bSanrdCeBAJsETFooweU/fXEQ5dweAqPN2zhQc/P7KPy5Auq9q'),(19,'1','t','t','t','$2a$10$6w7Rbh.xlDd.2nZ8.z1qUeBLJ3ttESI/gXwBpUYrferMN8NLh3Tfm'),(20,'112991','7','days','7daysAweek','$2a$10$93P03XSqkjxMV8l55/iyuOpymRvFi0CaDRt4fRj3RK6O/EJICMSiu'),(21,'112991','7','days','7daysAweek','$2a$10$JVXIgA9VLl.wk9IuFRlnjuZBEr5X9qHl/FdoyspSfojRcYy3OUIqC'),(22,'112','Pikachu','Pikachu','Pikachu','$2a$10$nROxUu7XQ7bXk.pVfjBgIO.USyTKNpwWWcia/R4qJht/LMZHJcuoW'),(23,'112','Pikachu','Pikachu','Pikachu','$2a$10$KMTNhsxkr7xlQT1rFJybv.zaOxban6mA3VlhQxPyIpSzdpulPj5ne'),(24,'112','Pikachu','Pikachu','Pikachu','$2a$10$sS2wEav8pDuNS1iQ/HaM3uYpr/2o3TuLZGGC8RSJCUMHrLiz3B.Qy'),(25,'112','Pikachu','Pikachu','Pikachu','$2a$10$HgDqKKL0p0oNuvZ923yUd.uCnaFPYGMszk/4isILMhjwUEzO6x7ly'),(26,'112','Pikachu','Pikachu','Pikachu','$2a$10$SZU0zvvydH9K.z0/illBq.EE/Hyc9MZQVbcvSE5Jz2K4vUNyRSYvm'),(27,'112','Pikachu','Pikachu','Pikachu','$2a$10$CB6OWsGssGIUkG1eV/ipdOsbxmCsAf0ch3SbXFKIhSqY4FGbndfCi'),(28,'112','Pikachu','Pikachu','Pikachu','$2a$10$nGu8XkzcHmS5P664xJtmUORS38ApMdCuNssvV.cp6BAoM6ndCZMKi'),(29,'112','Pikachu','Pikachu','Pikachu','$2a$10$s79Qe5A5bRykdhxrrX1AU.dL87OzkB1FRQFj3hJXwlUFjPJP/NRuy'),(30,'112','Pikachu','Pikachu','Pikachu','$2a$10$jl4wJi/xhjcvRO/pNyhYAeTH/OxuQwJKl53Un4fH4yE0Jm0c.Yl3C'),(31,'112','Pichu','Pichu','Pichu','$2a$10$hLb8mKF.pvdZEzGwzJ.Vsu0Ku2S3CuyYlctwMUa22kWM6fUeoemIa'),(32,'112','Scrum','Master','ScrumMaster','$2a$10$HXxS3aAVKfFNnxq30m1am.wAAsk6V8ZHVv6eMGlScV4TTu6MDcwRS'),(33,'112911','Kyojuro','Rengoku','Kyojuro','$2a$10$9WUhFUy3y9MAw2VAdYO3veEYUKRmaSr0utS.SfbvSJP1nuI8.xokW'),(34,'112','Skibidi','Dop Dop','SkibidiDopDopYesYes','$2a$10$VLByIS4yxFlKEl5XT3Gnau5UarbMAaZ/f5RiFOSgV1sLGHnk7PxiC'),(35,'112','Teletubbie','Red','TeletubbieRed','$2a$10$gH.6abwoV.UUF5x7UKcuHeMOS6yUaqj3Oc0WQwsRLpRSQvqtIp9.W'),(36,'112','Hyper','Charger','HyperCharge','$2a$10$aAqo2QIh5RnWcMkRWMWrmOpYI9Yhprd.FCaKrgtdHBe7g/iAvg9xC'),(37,'112','Karl','Marx','KarlMarx','$2a$10$V9nO7bc/9Neu1MPiyAOxR.YgoHMc5zdqdKUdxxf0tlwAhy4kPixba');
+INSERT INTO `klant` VALUES (1,'0612345678','Kyojuro','Rengoku','Kyojuro','$2a$10$T2e4J5EfTmf8ySvQyxe37u.AEG5lp4V4OYR3aEUyGOY3njoBaYzdK'),(51,'112','Skibidi','Toilet','Skibidi','$2a$10$XsAhyDgBo1SyeD/gEqvOWe8BatGkC4Y3aInt35bqbLE5OzrKXm8LO'),(52,'Test','Test','Test','Test','$2a$10$VAb7qXdn1yiSdunR5iskwuWYOKLV2Le99DPtteQRbhz.fbfCy4/lq'),(57,'112','Nobuhide','Seki','Nobuhide','$2a$10$Qu14qiKTYd0SlMy5486pHOHFtJkTssQmDMO5RrFbUWTeaIyEDhEAq'),(58,'112','Yoshi','Dino','Yoshi','$2a$10$/1jQAYNZJDcoMHq2sPamleNLhsv4XnV/kBmQ8A1JzYUH1Nv6Y1q5G'),(59,'112','Sigma ','Boy','Sigma','$2a$10$xvsm06EyQ0h3wQX/f2LIcenz1uHPbfCUO6Veatt9wGWJACTC62Fqu');
 /*!40000 ALTER TABLE `klant` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -73,7 +74,6 @@ CREATE TABLE `meting` (
 
 LOCK TABLES `meting` WRITE;
 /*!40000 ALTER TABLE `meting` DISABLE KEYS */;
-INSERT INTO `meting` VALUES (1,'2024-12-18 10:47:59',2,4,5,5,6,5,0),(2,'2024-12-19 10:47:59',2,4,7,9,1,3,0),(3,'2024-12-20 10:47:59',2,4,7,8,4,4,0),(4,'2024-12-21 10:47:59',2,4,8,9,5,5,0),(5,'2024-12-22 10:47:59',2,4,10,10,10,10,0),(6,'2024-12-23 10:47:59',2,4,8,2,1,1,0),(7,'2024-12-24 10:47:59',2,4,9,7,10,1,0),(8,'2024-12-22 10:47:59',2,4,10,10,10,10,1);
 /*!40000 ALTER TABLE `meting` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -85,13 +85,13 @@ DROP TABLE IF EXISTS `tracker`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tracker` (
-  `TrackerID` int NOT NULL DEFAULT '0',
+  `TrackerID` int NOT NULL AUTO_INCREMENT,
   `KlantID` int NOT NULL,
   PRIMARY KEY (`TrackerID`),
   UNIQUE KEY `TrackerID` (`TrackerID`),
   KEY `KlantID` (`KlantID`),
   CONSTRAINT `tracker_ibfk_1` FOREIGN KEY (`KlantID`) REFERENCES `klant` (`KlantID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -100,7 +100,7 @@ CREATE TABLE `tracker` (
 
 LOCK TABLES `tracker` WRITE;
 /*!40000 ALTER TABLE `tracker` DISABLE KEYS */;
-INSERT INTO `tracker` VALUES (0,33);
+INSERT INTO `tracker` VALUES (2,1),(4,1),(5,1),(8,1),(3,51),(1,52),(6,57),(7,58);
 /*!40000 ALTER TABLE `tracker` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -113,4 +113,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-12-18 17:54:29
+-- Dump completed on 2025-01-19 21:33:01
