@@ -9,10 +9,10 @@ public class DatabaseConnection {
 
     public Connection getConnection(){
         String databaseName = "energydrainers";
-        String databaseUser = "root";
-        String databasePassword = "";
-        String url = "jdbc:mysql://localhost:3306/" + databaseName;
-        //String url = "jdbc:mysql://localhost:3306/energydrainers";
+        String databaseUser = "energydrainersAdmin";
+        String databasePassword = "SunDrainers!";
+        String url = "jdbc:mysql://sundrainersmysql.mysql.database.azure.com:3306/" + databaseName;
+        //String url = "jdbc:mysql://sundrainersmysql.mysql.database.azure.com:3306/energydrainers";
 
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
