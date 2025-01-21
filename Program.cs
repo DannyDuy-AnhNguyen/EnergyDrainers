@@ -22,7 +22,7 @@ class Program
         };
 
         // connect to the database
-        string connSt = "server=localhost;user=root;database=energydrainers;port=3306;password=welkom123";
+        string connSt = "server=sundrainersmysql.mysql.database.azure.com;user=energydrainersAdmin;database=energydrainers;port=3306;password=SunDrainers!";
         MySqlConnection conn = new MySqlConnection(connSt);
         MySqlCommand cmd = conn.CreateCommand();
 
